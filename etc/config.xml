@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cloudimage_responsive>
+            <options>
+                <lazy_loading>1</lazy_loading>
+            </options>
+            <cdn>
+                <api_url>https://cdn.scaleflex.it/plugins/js-cloudimage-responsive/4.6.5/js-cloudimage-responsive.min.js</api_url>
+            </cdn>
+        </cloudimage_responsive>
+    </default>
+</config>
