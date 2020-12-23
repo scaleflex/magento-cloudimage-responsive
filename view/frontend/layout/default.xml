@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of CloudImage Responsive
+ *
+ * @author Alyzeo LTD <info@alyzeo.com>
+ * @category CloudImage
+ * @package CloudImage\Responsive\view\frontend\layout
+ * @license BSD-3-Clause
+ * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.wrapper">
+            <block
+                class="CloudImage\Responsive\Block\Tag"
+                name="cloud_image.responsive.tag"
+                template="CloudImage_Responsive::tag.phtml"
+                after="-"
+                ifconfig="cloudimage_responsive/general/active"/>
+        </referenceContainer>
+    </body>
+</page>

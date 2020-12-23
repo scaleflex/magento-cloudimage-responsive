@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * This file is part of CloudImage Responsive
+ *
+ * @author Alyzeo LTD <info@alyzeo.com>
+ * @category CloudImage
+ * @package CloudImage\Responsive\etc\adminhtml
+ * @license BSD-3-Clause
+ * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="cloud_image" translate="label" sortOrder="200">
+            <label>CloudImage by Scaleflex</label>
+        </tab>
+        <section id="cloudimage_responsive" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>CloudImage Responsive</label>
+            <tab>cloud_image</tab>
+            <resource>CloudImage_Responsive::config</resource>
+            <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>CloudImage Responsive Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[]]></comment>
+                </field>
+                <field id="token" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Token</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="options" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Options</label>
+                <field id="do_not_replace_url" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use origin URL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If enabled, the plugin will only add query parameters to the image source URL, avoiding double CDNization in some cases, like if you have aliases configured.]]></comment>
+                </field>
+                <field id="ignore_node_img_size" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ignore Image Size Node</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Can be useful for improving compatibility with some themes.]]></comment>
+                </field>
+                <field id="ignore_style_img_size" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ignore Image Size Style</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Can be useful for improving compatibility with some themes.]]></comment>
+                </field>
+                <field id="lazy_loading" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Lazy Loading</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If enabled, only images close to the current viewpoint will be loaded.]]></comment>
+                </field>
+            </group>
+            <group id="advanced" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Advanced Configuration</label>
+                <field id="custom_function_active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Inject Custom js function</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Can be used to inject special js function depending on your theme.]]></comment>
+                </field>
+                <field id="custom_function" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Custom js function</label>
+                    <comment><![CDATA[The valid js function starting with { and finishing with }]]></comment>
+                    <depends>
+                        <field id="custom_function_active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

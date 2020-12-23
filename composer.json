@@ -1,0 +1,26 @@
+{
+    "name": "cloudimage/module-responsive-plugin",
+    "description": "CloudImage Responsive Plugin Module for Magento 2.x",
+    "require": {
+        "magento/framework": ">=100.0.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Alyzeo LTD",
+            "homepage": "https://www.alyzeo.com/",
+            "role": "Developer",
+            "email": "info@alyzeo.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CloudImage\\Responsive\\": ""
+        }
+    }
+}
