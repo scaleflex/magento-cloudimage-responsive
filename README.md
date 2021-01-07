@@ -17,7 +17,7 @@ You will need to signup for a free account with [cloudimage.io](https://www.clou
 in order to use the module. Once your account has been created, you will get a token. The token will be required
 to configure the module and start a new experience with CloudImage.
 
-If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact).
+If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
 
 ### Install module by Composer
 
