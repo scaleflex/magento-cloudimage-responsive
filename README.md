@@ -2,8 +2,10 @@
 
 ## Introduction
 
-Cloudimage is a scalalbe image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
+Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
+
 The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
+
 This Mangeto 2 mdoule implements the Cloudimage Responsive Images Plugin on Magento 2 shops.
 
 
