@@ -1,27 +1,26 @@
-# Cloudimage Responsive Images Plugin for Magento2
+# Cloudimage Responsive Images Plugin for Magento 2
 
-Thank you for using the "CloudImage Responsive plugin for Magento2".
+## Introduction
 
-## Description
+Cloudimage is a scalalbe image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
+The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
+This Mangeto 2 mdoule implements the Cloudimage Responsive Images Plugin on Magento 2 shops.
 
-Cloudimage will solve your challenges with image resizing, transformation, 
-and acceleration in the Cloud.
 
-## Install CloudImage Responsive plugin for Magento 2
+## Install Cloudimage Responsive plugin for Magento 2
 
 ### Prerequisites
 
-CloudImage_Responsive supports Magento2 Open Source, Commerce Edition from version 2.0.
+Cloudimage supports Magento 2 Open Source, Commerce Edition from version 2.0.
 
-You will need to signup for a free account with [cloudimage.io](https://www.cloudimage.io/en/registration)
-in order to use the module. Once your account has been created, you will get a token. The token will be required
-to configure the module and start a new experience with CloudImage.
+To use the plugin, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
+This token is required to configure the Magento plugin.
 
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
 
 ### Install module by Composer
 
-To be able to install the module by Composer, you might need to get a copy of the  module on the Magento Marketplace, or directly on our github.
+To be able to install the module by Composer, you need to get a copy of the module on the Magento Marketplace, or directly from Github.
  
 
 ```shell
