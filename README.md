@@ -1,4 +1,4 @@
-# Cloudimage Responsive Images Plugin for Magento 2
+# Cloudimage Responsive Images module for Magento 2
 
 ## Introduction
 
@@ -9,13 +9,13 @@ The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudim
 This Mangeto 2 mdoule implements the Cloudimage Responsive Images Plugin on Magento 2 shops.
 
 
-## Install Cloudimage Responsive plugin for Magento 2
+## Install Cloudimage Responsive module for Magento 2
 
 ### Prerequisites
 
-Cloudimage supports Magento 2 Open Source, Commerce Edition from version 2.0.
+Cloudimage supports Magento Open Source and Commerce Edition from version 2 onwards.
 
-To use the plugin, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
+To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
 This token is required to configure the Magento plugin.
 
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
@@ -29,7 +29,7 @@ To be able to install the module by Composer, you need to get a copy of the modu
 composer require cloudimage/responsive --sort-packages
 ```
 
-Enable and install module(s) in Magento:
+Enable and install following modules in Magento:
 
 ```shell
 php bin/magento module:enable CloudImage_Responsive
@@ -38,13 +38,7 @@ php bin/magento setup:upgrade
 
 ### Configuration
 
-You need to complete the requirements first. 
-
-Then, once the module is installed on your Magento, you will be able to enter the API token 
-into the CloudImage Responsive module.   
-
-To enter the API token, open a browser and log in to the admin section of the Magento server. 
-Navigate to:
+Once the steps listed above are completed enter your Cloudimage token into the CloudImage Responsive module configuration the Magento admin interface:
 
 ```
 Stores > Configuration > CloudImage By Scaleflex > CloudImage Responsive
