@@ -1,4 +1,4 @@
-# CLOUDIMAGE RESPONSIVE PLUGIN FOR MAGENTO2 DOCUMENTATION
+# Cloudimage Responsive Images Plugin for Magento2
 
 Thank you for using the "CloudImage Responsive plugin for Magento2".
 
@@ -13,7 +13,7 @@ and acceleration in the Cloud.
 
 CloudImage_Responsive supports Magento2 Open Source, Commerce Edition from version 2.0.
 
-You will need to signup for a free account with [cloudimage.io](https://www.cloudimage.io/en/registration) 
+You will need to signup for a free account with [cloudimage.io](https://www.cloudimage.io/en/registration){:target="_blank"}
 in order to use the module. Once your account has been created, you will get a token. The token will be required
 to configure the module and start a new experience with CloudImage.
 
