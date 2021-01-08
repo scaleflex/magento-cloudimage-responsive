@@ -46,20 +46,18 @@ Stores > Configuration > CloudImage By Scaleflex > CloudImage Responsive
 
 ![CloudImage Responsive Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "CloudImage Responsive Configuration Page")
 
-Expand the `General` section and activate the module by selecting `Yes` in the `CloudImage Responsive Active` dropdown.
+Expand the `General` section and activate the module by selecting `Yes` in the `CloudImage Responsive Active` dropdown. Enter your Cloudimage token and configure the Options.
 
-Once you've selected Yes in the dropdown, the "API token" textbox will appear. Enter your token in it.
+After saving the configuration, you will be asked to flush your Magento cache.
 
-Click on "Save Button" and you will be asked to flush the cache.
+## Options
 
-## Features
+Following options are available: 
 
-The module allows you to activate/deactivate the following options:
+**Use origin URL:** If enabled, the module will only add query parameters to the image source URL without prefixing it with `{token}.cloudimg.io`. This is required if you use a dedicated subdomain for delivering your images (media) in Magento. You will need to complete the steps for enabling a custom CNAME in Cloudimage documented here.
 
-**Use origin URL:** If enabled, the plugin will only add query parameters to the image source URL, avoiding double CDNization in some cases, like if you have aliases configured.
+**Ignore Image Size Node:** useful for improving compatibility with some themes.
 
-**Ignore Image Size Node:** Can be useful for improving compatibility with some themes.
+**Ignore Image Size Style:** useful for improving compatibility with some themes.
 
-**Ignore Image Size Style:** Can be useful for improving compatibility with some themes.
-
-**Lazy Loading:** If enabled, only images close to the current viewpoint will be loaded.
+**Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
