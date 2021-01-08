@@ -46,7 +46,7 @@ Stores > Configuration > CloudImage By Scaleflex > CloudImage Responsive
 
 ![CloudImage Responsive Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "CloudImage Responsive Configuration Page")
 
-Expand the 'General' section then select Yes in "CloudImage Responsive Active" dropdown.
+Expand the `General` section and activate the module by selecting `Yes` in the `CloudImage Responsive Active` dropdown.
 
 Once you've selected Yes in the dropdown, the "API token" textbox will appear. Enter your token in it.
 
