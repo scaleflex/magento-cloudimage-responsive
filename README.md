@@ -4,9 +4,9 @@
 
 Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
 
-The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
+The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS lib for implementing Cloudimage in your frontend code automatically and enabling responsive images on any web or mobile application. 
 
-This Mangeto 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerate your shop's landing page, category and product pages.
+This Magento 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerate your shop's landing page, category and product pages.
 
 
 ## Install Cloudimage Responsive module for Magento 2
@@ -16,7 +16,7 @@ This Mangeto 2 module implements the Cloudimage Responsive Images Plugin on Mage
 Cloudimage supports Magento Open Source and Commerce Edition from version 2 onwards.
 
 To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
-This token is required to configure the Magento plugin.
+This token is required to configure the Cloudimage plugin inside Magento.
 
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
 
