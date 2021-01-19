@@ -26,7 +26,8 @@ To be able to install the module by Composer, you need to get a copy of the modu
  
 
 ```shell
-composer require cloudimage/responsive --sort-packages
+composer config repositories.cloudimage vcs https://github.com/scaleflex/magento-cloudimage-responsive
+composer require cloudimage/module-responsive-plugin --sort-packages
 ```
 
 Enable and install following modules in Magento:
@@ -61,3 +62,36 @@ Following options are available:
 **Ignore Image Size Style:** useful for improving compatibility with some themes.
 
 **Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
+
+## Advanced Configuration
+
+This section is reserved for advanded user only!
+
+Depending the template you have, it will be useful to customize the way Cloudimage get DOM information around your media files.
+
+**Inject Custom JS function:** If enabled, you will be able to customize the js function used dynamically to get the DOM information.
+
+**Custom js function:** The js function to customize Cloudimage library.
+
+## Template Integration
+
+In order to identify the media files Cloudimage will optimize, it is necessary to adapt your media template files.
+
+The operation is simple. You need to replace DOM image element source "src" by a "ci-src". 
+
+Like this: `<img src="" />` element by `<img ci-src="" />`.
+
+### Example
+
+For example, with Magento_Catalog Product image template : `product/image_with_borders.phtml`
+
+1. Copy Magento original template in your theme : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
+
+2. Replace the src line `src="<?= $block->(...)"` 
+by `ci-src="<?= $block->(...)"`
+
+Here is an example using Cloudimage helper to modify the image element only if the Responsive plugin is activated:
+
+Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
+
+![CloudImage Template Integration example](doc/images/cloudimage_template_integration_example.png "CloudImage Responsive Configuration Page")
