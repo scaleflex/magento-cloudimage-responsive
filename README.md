@@ -9,11 +9,11 @@ The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudim
 This Mangeto 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerate your shop's landing page, category and product pages. 
 
 There are 2 steps for enabling the plugin on your Magento 2 shop:
-1. Install the plugin and perform the base configuration
+1. Install Cloudimage Responsive module for Magento 2
 2. Adapt the Magento templates to enable Cloudimage
 
 
-## Install Cloudimage Responsive module for Magento 2
+## 1. Install Cloudimage Responsive module for Magento 2
 
 ### Prerequisites
 
@@ -67,7 +67,7 @@ Following options are available:
 
 **Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
 
-## Advanced Configuration
+## 2. Adapt the Magento templates to enable Cloudimage
 
 This section is reserved for advanded user only!
 
