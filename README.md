@@ -67,17 +67,16 @@ Following options are available:
 
 **Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
 
-## 2. Adapt the Magento templates to enable Cloudimage
+## Advanced Configuration [Optional]
 
-This section is reserved for advanded user only!
+This setting is for advanced users only and allows to inject a custom JS function into the Magento templates in order to support some specific Magento templates. Feel free to contact us in order to get the custom JS function to inject to address issues with your specific template.
 
-Depending the template you have, it will be useful to customize the way Cloudimage get DOM information around your media files.
-
-**Inject Custom JS function:** If enabled, you will be able to customize the js function used dynamically to get the DOM information.
+**Inject Custom JS function:** If enabled, you will be able to customize the JS function used dynamically to get the DOM information.
 
 **Custom js function:** The js function to customize Cloudimage library.
 
-## Template Integration
+## 2. Adapt the Magento templates to enable Cloudimage
+The final step before enjoying reponsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
 
 In order to identify the media files Cloudimage will optimize, it is necessary to adapt your media template files.
 
