@@ -95,4 +95,4 @@ Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/p
 
 ![CloudImage Template Integration example](doc/images/cloudimage_template_integration_example.png "CloudImage Responsive Configuration Page")
 
-If you have a issues with adapting your tempaltes files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
+If you have a issues with adapting your templates files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
