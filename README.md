@@ -94,3 +94,5 @@ Here is an example using Cloudimage helper to modify the image element only if t
 Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
 
 ![CloudImage Template Integration example](doc/images/cloudimage_template_integration_example.png "CloudImage Responsive Configuration Page")
+
+If you have a issues with adapting your tempaltes files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
