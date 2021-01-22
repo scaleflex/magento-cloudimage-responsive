@@ -75,23 +75,19 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **Custom js function:** The js function to customize Cloudimage library.
 
-## 2. Adapt the Magento templates to enable Cloudimage
+## 2. Adapt the Magento templates to enable the Cloudimage module (Magento server access required)
+
 The final step before enjoying reponsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
 
-In order to identify the media files Cloudimage will optimize, it is necessary to adapt your media template files.
-
-The operation is simple. You need to replace DOM image element source "src" by a "ci-src". 
-
-Like this: `<img src="" />` element by `<img ci-src="" />`.
+Any Magento template file (.phtml) injecting images in your Magento shop via an `<img src>` HTML attribute should be modified as shown below in order to deliver responsive images over Cloudimage.
 
 ### Example
 
-For example, with Magento_Catalog Product image template : `product/image_with_borders.phtml`
+For example, the Magento product catalog page template `image_with_borders.phtml` can be found under `product/` folder on your Magento server. 
 
-1. Copy Magento original template in your theme : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
+1. Copy Magento original template in your theme: `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
 
-2. Replace the src line `src="<?= $block->(...)"` 
-by `ci-src="<?= $block->(...)"`
+2. Replace the src line `src="<?= $block->(...)"` by `ci-src="<?= $block->(...)"`
 
 Here is an example using Cloudimage helper to modify the image element only if the Responsive plugin is activated:
 
