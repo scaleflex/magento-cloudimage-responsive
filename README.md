@@ -8,8 +8,12 @@ The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudim
 
 This Magento 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerate your shop's landing page, category and product pages.
 
+There are 2 steps for enabling the plugin on your Magento 2 shop:
+1. Install Cloudimage Responsive module for Magento 2
+2. Adapt the Magento templates to enable Cloudimage
 
-## Install Cloudimage Responsive module for Magento 2
+
+## 1. Install Cloudimage Responsive module for Magento 2
 
 ### Prerequisites
 
@@ -26,7 +30,8 @@ To be able to install the module by Composer, you need to get a copy of the modu
  
 
 ```shell
-composer require cloudimage/responsive --sort-packages
+composer config repositories.cloudimage vcs https://github.com/scaleflex/magento-cloudimage-responsive
+composer require cloudimage/module-responsive-plugin --sort-packages
 ```
 
 Enable and install following modules in Magento:
@@ -61,3 +66,33 @@ Following options are available:
 **Ignore Image Size Style:** useful for improving compatibility with some themes.
 
 **Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
+
+## Advanced Configuration [Optional]
+
+This setting is for advanced users only and allows to inject a custom JS function into the Magento templates in order to support some specific Magento templates. Feel free to contact us in order to get the custom JS function to inject to address issues with your specific template.
+
+**Inject Custom JS function:** If enabled, you will be able to customize the JS function used dynamically to get the DOM information.
+
+**Custom js function:** The js function to customize Cloudimage library.
+
+## 2. Adapt the Magento templates to enable the Cloudimage module (Magento server access required)
+
+The final step before enjoying reponsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
+
+Any Magento template file (.phtml) injecting images in your Magento shop via an `<img src>` HTML attribute should be modified as shown below in order to deliver responsive images over Cloudimage.
+
+### Example
+
+For example, the Magento product catalog page template `image_with_borders.phtml` can be found under `product/` folder on your Magento server. 
+
+1. Copy Magento original template in your theme: `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
+
+2. Replace the src line `src="<?= $block->(...)"` by `ci-src="<?= $block->(...)"`
+
+Here is an example using Cloudimage helper to modify the image element only if the Responsive plugin is activated:
+
+Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
+
+![CloudImage Template Integration example](doc/images/cloudimage_template_integration_example.png "CloudImage Responsive Configuration Page")
+
+If you have a issues with adapting your templates files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
