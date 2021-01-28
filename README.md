@@ -105,20 +105,21 @@ Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/p
 /** @var \CloudImage\Responsive\Helper\Config $cloudImageHelper */
 $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
 ?>
-<span class="product-image-container"
-      style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">
-    <span class="product-image-wrapper"
-          style="padding-bottom: <?= ($block->getRatio() * 100) ?>%;">
+<span class="product-image-container" style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">
+    <span class="product-image-wrapper" style="padding-bottom: <?= ($block->getRatio() * 100) ?>%;">
         <img class="<?= $block->escapeHtmlAttr($block->getClass()) ?>"
             <?= $block->escapeHtmlAttr($block->getCustomAttributes()) ?>
+            
             <?php if ($cloudImageHelper->isActive()): ?>
                 ci-src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
             <?php else: ?>
                 src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
             <?php endif; ?>
+            
             max-width="<?= $block->escapeHtmlAttr($block->getWidth()) ?>"
             max-height="<?= $block->escapeHtmlAttr($block->getHeight()) ?>"
-            alt="<?= /* @noEscape */ $block->stripTags($block->getLabel(), null, true) ?>"/></span>
+            alt="<?= /* @noEscape */ $block->stripTags($block->getLabel(), null, true) ?>"/>
+     </span>
 </span>
 ```
 
