@@ -100,11 +100,12 @@ Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/p
  * See COPYING.txt for license details.
  */
 ?>
-<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+
+
 <?php
-/** @var \CloudImage\Responsive\Helper\Config $cloudImageHelper */
 $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
 ?>
+
 <span class="product-image-container" style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">
     <span class="product-image-wrapper" style="padding-bottom: <?= ($block->getRatio() * 100) ?>%;">
         <img class="<?= $block->escapeHtmlAttr($block->getClass()) ?>"
