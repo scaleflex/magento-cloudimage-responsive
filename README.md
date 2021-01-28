@@ -119,7 +119,8 @@ $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
             
             max-width="<?= $block->escapeHtmlAttr($block->getWidth()) ?>"
             max-height="<?= $block->escapeHtmlAttr($block->getHeight()) ?>"
-            alt="<?= /* @noEscape */ $block->stripTags($block->getLabel(), null, true) ?>"/>
+            alt="<?= /* @noEscape */ $block->stripTags($block->getLabel(), null, true) ?>"
+            />
      </span>
 </span>
 ```
