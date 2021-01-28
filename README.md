@@ -110,11 +110,11 @@ $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
         <img class="<?= $block->escapeHtmlAttr($block->getClass()) ?>"
             <?= $block->escapeHtmlAttr($block->getCustomAttributes()) ?>
             
-            <b><?php if ($cloudImageHelper->isActive()): ?>
+            <?php if ($cloudImageHelper->isActive()): ?>
                 ci-src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
             <?php else: ?>
                 src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
-            <?php endif; ?></b>
+            <?php endif; ?>
             
             max-width="<?= $block->escapeHtmlAttr($block->getWidth()) ?>"
             max-height="<?= $block->escapeHtmlAttr($block->getHeight()) ?>"
