@@ -93,6 +93,33 @@ Here is an example using Cloudimage helper to modify the image element only if t
 
 Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
 
-![CloudImage Template Integration example](doc/images/cloudimage_template_integration_example.png "CloudImage Responsive Configuration Page")
+```
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /** @var $block \Magento\Catalog\Block\Product\Image */ ?>
+<?php
+/** @var \CloudImage\Responsive\Helper\Config $cloudImageHelper */
+$cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
+?>
+<span class="product-image-container"
+      style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">
+    <span class="product-image-wrapper"
+          style="padding-bottom: <?= ($block->getRatio() * 100) ?>%;">
+        <img class="<?= $block->escapeHtmlAttr($block->getClass()) ?>"
+            <?= $block->escapeHtmlAttr($block->getCustomAttributes()) ?>
+            <?php if ($cloudImageHelper->isActive()): ?>
+                ci-src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
+            <?php else: ?>
+                src="<?= $block->escapeUrl($block->getImageUrl()) ?>"
+            <?php endif; ?>
+            max-width="<?= $block->escapeHtmlAttr($block->getWidth()) ?>"
+            max-height="<?= $block->escapeHtmlAttr($block->getHeight()) ?>"
+            alt="<?= /* @noEscape */ $block->stripTags($block->getLabel(), null, true) ?>"/></span>
+</span>
+```
 
 If you have a issues with adapting your templates files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
