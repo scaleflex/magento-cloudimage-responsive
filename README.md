@@ -93,14 +93,13 @@ Here is an example using Cloudimage helper to modify the image element only if t
 
 Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
 
-<pre>
+```
 <?php
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 ?>
-
 
 <?php
 $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
@@ -123,6 +122,6 @@ $cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
             />
      </span>
 </span>
-</pre>
+```
 
 If you have a issues with adapting your templates files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
