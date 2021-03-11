@@ -37,21 +37,21 @@ composer require cloudimage/module-responsive-plugin --sort-packages
 Enable and install following modules in Magento:
 
 ```shell
-php bin/magento module:enable CloudImage_Responsive
+php bin/magento module:enable Cloudimage_Responsive
 php bin/magento setup:upgrade
 ```
 
 ### Configuration
 
-Once the steps listed above are completed enter your Cloudimage token into the CloudImage Responsive module configuration the Magento admin interface:
+Once the steps listed above are completed enter your Cloudimage token into the Cloudimage Responsive module configuration the Magento admin interface:
 
 ```
-Stores > Configuration > CloudImage By Scaleflex > CloudImage Responsive
+Stores > Configuration > Cloudimage By Scaleflex > Cloudimage Responsive
 ```
 
-![CloudImage Responsive Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "CloudImage Responsive Configuration Page")
+![Cloudimage Responsive Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "Cloudimage Responsive Configuration Page")
 
-Expand the `General` section and activate the module by selecting `Yes` in the `CloudImage Responsive Active` dropdown. Enter your Cloudimage token and configure the Options.
+Expand the `General` section and activate the module by selecting `Yes` in the `Cloudimage Responsive Active` dropdown. Enter your Cloudimage token and configure the Options.
 
 After saving the configuration, you will be asked to flush your Magento cache.
 
@@ -102,7 +102,7 @@ Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/p
 ?>
 
 <?php
-$cloudImageHelper = $this->helper(\CloudImage\Responsive\Helper\Config::class);
+$cloudImageHelper = $this->helper(\Cloudimage\Responsive\Helper\Config::class);
 ?>
 
 <span class="product-image-container" style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">

@@ -1,17 +1,17 @@
 <?php
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Cloudimage Responsive
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\Block
+ * @category Cloudimage
+ * @package Cloudimage\Responsive\Block
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace CloudImage\Responsive\Block;
+namespace Cloudimage\Responsive\Block;
 
-use CloudImage\Responsive\Helper\Config;
+use Cloudimage\Responsive\Helper\Config;
 use Magento\Framework\View\Element\Template;
 use Zend\Json\Json;
 
@@ -48,7 +48,7 @@ class Tag extends Template
     }
 
     /**
-     * Get CloudImage Responsive plugin config
+     * Get Cloudimage Responsive plugin config
      *
      * @return string
      */

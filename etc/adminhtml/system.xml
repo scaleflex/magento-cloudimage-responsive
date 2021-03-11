@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!--
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Cloudimage Responsive
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\etc\adminhtml
+ * @category Cloudimage
+ * @package Cloudimage\Responsive\etc\adminhtml
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -13,16 +13,16 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <tab id="cloud_image" translate="label" sortOrder="200">
-            <label>CloudImage by Scaleflex</label>
+            <label>Cloudimage by Scaleflex</label>
         </tab>
         <section id="cloudimage_responsive" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>CloudImage Responsive</label>
+            <label>Cloudimage Responsive</label>
             <tab>cloud_image</tab>
-            <resource>CloudImage_Responsive::config</resource>
+            <resource>Cloudimage_Responsive::config</resource>
             <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>CloudImage Responsive Active</label>
+                    <label>Cloudimage Responsive Active</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[]]></comment>
                 </field>

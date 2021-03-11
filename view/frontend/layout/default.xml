@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!--
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Cloudimage Responsive
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\view\frontend\layout
+ * @category Cloudimage
+ * @package Cloudimage\Responsive\view\frontend\layout
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -14,9 +14,9 @@
     <body>
         <referenceContainer name="page.wrapper">
             <block
-                class="CloudImage\Responsive\Block\Tag"
+                class="Cloudimage\Responsive\Block\Tag"
                 name="cloud_image.responsive.tag"
-                template="CloudImage_Responsive::tag.phtml"
+                template="Cloudimage_Responsive::tag.phtml"
                 after="-"
                 ifconfig="cloudimage_responsive/general/active"/>
         </referenceContainer>

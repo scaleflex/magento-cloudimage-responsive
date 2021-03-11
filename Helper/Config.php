@@ -1,15 +1,15 @@
 <?php
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Cloudimage Responsive
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\Model
+ * @category Cloudimage
+ * @package Cloudimage\Responsive\Model
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace CloudImage\Responsive\Helper;
+namespace Cloudimage\Responsive\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
@@ -48,7 +48,7 @@ class Config extends AbstractHelper
     }
 
     /**
-     * Get CloudImage Responsive plugin configuration
+     * Get Cloudimage Responsive plugin configuration
      *
      * @return array
      */

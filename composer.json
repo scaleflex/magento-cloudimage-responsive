@@ -1,6 +1,6 @@
 {
     "name": "cloudimage/module-responsive-plugin",
-    "description": "CloudImage Responsive Plugin Module for Magento 2.x",
+    "description": "Cloudimage Responsive Plugin Module for Magento 2.x",
     "require": {
         "magento/framework": ">=100.0.0"
     },
@@ -20,7 +20,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "CloudImage\\Responsive\\": ""
+            "Cloudimage\\Responsive\\": ""
         }
     }
 }
