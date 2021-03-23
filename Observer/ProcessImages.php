@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of Cloudimage Responsive
+ *
+ * @author Alyzeo LTD <info@alyzeo.com>
+ * @category Cloudimage
+ * @package Cloudimage\Responsive
+ * @license BSD-3-Clause
+ * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
+ */
 
 namespace Cloudimage\Responsive\Observer;
 
@@ -42,7 +51,7 @@ class ProcessImages implements ObserverInterface
             return;
         }
         $transport = $observer->getData('transport');
-        if (stripos($transport->getHtml(), '<img ') !== false) {
+        if (stripos($transport->getHtml(), '<img') !== false) {
             $newHtml = $this->images->processHtml($transport->getHtml());
             if ($transport->getHtml() !== $newHtml) {
                 $transport->setData('html', $newHtml);

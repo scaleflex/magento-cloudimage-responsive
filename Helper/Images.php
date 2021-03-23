@@ -30,7 +30,7 @@ class Images extends AbstractHelper
      */
     public function processHtml($html)
     {
-        if (stripos($html, '<img ') !== false) {
+        if (stripos($html, '<img') !== false) {
             $dom = new domDocument();
             $useErrors = libxml_use_internal_errors(true);
             $dom->loadHTML('<?xml encoding="utf-8" ?>' . $html);
@@ -48,7 +48,8 @@ class Images extends AbstractHelper
             }
 
             if ($replaceHtml) {
-                $html = $dom->saveHTML();
+                $html = $dom->saveHTML($dom->documentElement);
+                $html = str_ireplace(['<html><body>', '</body></html>'], '', $html);
             }
         }
         return $html;
