@@ -4,7 +4,7 @@
  *
  * @author Alyzeo LTD <info@alyzeo.com>
  * @category Cloudimage
- * @package Cloudimage\Responsive\Block
+ * @package Cloudimage\Responsive
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -22,6 +22,13 @@ class Tag extends Template
      */
     private $config;
 
+    /**
+     * Tag constructor.
+     *
+     * @param Config $config
+     * @param Template\Context $context
+     * @param array $data
+     */
     public function __construct(
         Config $config,
         Template\Context $context,
@@ -37,6 +44,31 @@ class Tag extends Template
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigToString(): string
+    {
+        $config = ' ';
+        if ($this->config->isLazyLoading()) {
+            $config .= 'lazyLoading:true, ';
+        }
+        if ($this->config->isDoNotReplaceUrl()) {
+            $config .= 'doNotReplaceURL:true, ';
+        }
+        if ($this->config->isIgnoreNodeImgSize()) {
+            $config .= 'ignoreNodeImgSize:true, ';
+        }
+        if ($this->config->isIgnoreStyleImgSize()) {
+            $config .= 'ignoreStyleImgSize:true, ';
+        }
+        if ($this->config->isCustomFunctionActive()) {
+            $config .= 'processQueryString: function (props) ' . $this->config->getCustomFunction() . ', ';
+        }
+        $config .= 'token:\'' . $this->config->getToken() . '\' ';
+        return $config;
     }
 
     /**

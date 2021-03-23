@@ -5,7 +5,7 @@
  *
  * @author Alyzeo LTD <info@alyzeo.com>
  * @category Cloudimage
- * @package Cloudimage\Responsive\view\frontend\layout
+ * @package Cloudimage\Responsive
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -13,12 +13,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="page.wrapper">
-            <block
-                class="Cloudimage\Responsive\Block\Tag"
-                name="cloud_image.responsive.tag"
-                template="Cloudimage_Responsive::tag.phtml"
-                after="-"
-                ifconfig="cloudimage_responsive/general/active"/>
+            <block class="Cloudimage\Responsive\Block\Tag" name="cloud_image.responsive.tag" after="-"
+                   template="Cloudimage_Responsive::tag.phtml" ifconfig="cloudimage_responsive/general/active" />
         </referenceContainer>
     </body>
 </page>

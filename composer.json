@@ -2,10 +2,12 @@
     "name": "cloudimage/module-responsive-plugin",
     "description": "Cloudimage Responsive Plugin Module for Magento 2.x",
     "require": {
-        "magento/framework": ">=100.0.0"
+        "magento/framework": ">=100.0.0",
+        "ext-dom": "*",
+        "ext-libxml": "*"
     },
     "type": "magento2-module",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "license": "BSD-3-Clause",
     "authors": [
         {

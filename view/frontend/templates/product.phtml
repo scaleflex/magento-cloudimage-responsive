@@ -1,0 +1,23 @@
+<?php
+/**
+ * This file is part of Cloudimage Responsive
+ *
+ * @author Alyzeo LTD <info@alyzeo.com>
+ * @category Cloudimage
+ * @package Cloudimage\Responsive
+ * @license BSD-3-Clause
+ * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
+ */
+
+/** @var Cloudimage\Responsive\Block\Tag $block */
+if ($block->isInvalidToken()):
+    return;
+endif;
+?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Cloudimage_Responsive/js/product": {}
+    }
+}
+</script>

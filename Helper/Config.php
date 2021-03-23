@@ -4,7 +4,7 @@
  *
  * @author Alyzeo LTD <info@alyzeo.com>
  * @category Cloudimage
- * @package Cloudimage\Responsive\Model
+ * @package Cloudimage\Responsive
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -14,6 +14,11 @@ namespace Cloudimage\Responsive\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
 
+/**
+ * Class Config
+ *
+ * @package Cloudimage\Responsive\Helper
+ */
 class Config extends AbstractHelper
 {
     const XML_PATH_CLOUDIMAGE_RESPONSIVE_GENERAL_ACTIVE = 'cloudimage_responsive/general/active';

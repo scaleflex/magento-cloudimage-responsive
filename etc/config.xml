@@ -4,11 +4,9 @@
     <default>
         <cloudimage_responsive>
             <options>
+                <do_not_replace_url>1</do_not_replace_url>
                 <lazy_loading>1</lazy_loading>
             </options>
-            <cdn>
-                <api_url>https://cdn.scaleflex.it/plugins/js-cloudimage-responsive/4.6.5/js-cloudimage-responsive.min.js</api_url>
-            </cdn>
         </cloudimage_responsive>
     </default>
 </config>

@@ -75,7 +75,19 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **Custom js function:** The js function to customize Cloudimage library.
 
-## 2. Adapt the Magento templates to enable the Cloudimage module (Magento server access required)
+## 2. Integration "on-the-fly" of Magento templates
+
+Once activate, Cloudimage Responsive module will replace "on the fly" your template which includes classic image tag element. It means, all tag images detected with a src attribute will be replaced with a ci-src attribute.
+
+### Compatibility
+
+This functionality is compatible with the Magento Luma theme.
+
+### Templates customization
+
+In case you've customized your templates and some of them are built with a Javascript technology, you'll probably have to integrate them manually. It means if some blocks are modified by a javascript after the DOM load, the "on-the-fly" functionnality will not able to integrate them automatically.
+
+## 3. Manually integration of Magento templates (Magento server access required)
 
 The final step before enjoying responsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
 

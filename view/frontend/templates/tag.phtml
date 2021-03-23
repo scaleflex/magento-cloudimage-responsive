@@ -4,7 +4,7 @@
  *
  * @author Alyzeo LTD <info@alyzeo.com>
  * @category Cloudimage
- * @package Cloudimage\Responsive\view\frontend\templates
+ * @package Cloudimage\Responsive
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -18,8 +18,8 @@ $config = $block->getConfig();
 <?php if ($block->isLazyLoadingActive()): ?>
 <!-- Add lazyload library -->
 <script>
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.init = false;
+window.lazySizesConfig = window.lazySizesConfig || {};
+window.lazySizesConfig.init = false;
 </script>
 <script src="https://cdn.scaleflex.it/filerobot/js-cloudimage-responsive/lazysizes.min.js"></script>
 <?php endif; ?>
@@ -29,32 +29,8 @@ $config = $block->getConfig();
 
 <!-- Initialize cloudimage responsive -->
 <script>
-    window.ciResponsive = new window.CIResponsive({
-    <?php if ($config->isLazyLoading()): ?>
-
-        lazyLoading: true,
-    <?php endif; ?>
-    <?php if ($config->isDoNotReplaceUrl()): ?>
-
-        doNotReplaceURL: true,
-    <?php endif; ?>
-    <?php if ($config->isIgnoreNodeImgSize()): ?>
-
-        ignoreNodeImgSize: true,
-    <?php endif; ?>
-    <?php if ($config->isIgnoreStyleImgSize()): ?>
-
-        ignoreStyleImgSize: true,
-    <?php endif; ?>
-    <?php if ($config->isCustomFunctionActive()): ?>
-
-        processQueryString: function (props) <?= $config->getCustomFunction() ?>,
-    <?php endif; ?>
-
-        token: '<?= $block->escapeHtml($config->getToken()) ?>'
-    });
-    <?php if ($config->isLazyLoading()): ?>
-
-    window.lazySizes.init();
-    <?php endif; ?>
+window.ciResponsive = new window.CIResponsive({<?= $block->getConfigToString() ?>});
+<?php if ($config->isLazyLoading()): ?>
+window.lazySizes.init();
+<?php endif; ?>
 </script>
