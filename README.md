@@ -4,9 +4,9 @@
 
 Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
 
-The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS lib for implementing Cloudimage in your frontend code automatically and enabling responsive images on any web or mobile application. 
+The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
 
-This Magento 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerates your shop's landing page, category and product pages.
+This Mangeto 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerates your shop's landing page, category and product pages. 
 
 There are 2 steps for enabling the plugin on your Magento 2 shop:
 1. Install Cloudimage Responsive module for Magento 2
@@ -20,7 +20,7 @@ There are 2 steps for enabling the plugin on your Magento 2 shop:
 Cloudimage supports Magento Open Source and Commerce Edition from version 2 onwards.
 
 To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
-This token is required to configure the Cloudimage plugin inside Magento.
+This token is required to configure the Magento plugin.
 
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
 
@@ -75,23 +75,23 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **Custom js function:** The js function to customize Cloudimage library.
 
-## 2. Integration "on-the-fly" of Magento templates
+## 2. Integration "on-the-fly" in Magento templates
 
-Once activate, Cloudimage Responsive module will replace "on the fly" your template which includes classic image tag element. It means, all tag images detected with a src attribute will be replaced with a ci-src attribute.
+Once activated, the Cloudimage Responsive module will replace "on the fly" your template's classic image tag elements. Specifically, all image tags detected with a src attribute will be replaced with a ci-src attribute and will therefore be processed through the Cloudimage infrastructure, allowing transformations and CDN caching.
 
 ### Compatibility
 
-This functionality is compatible with the Magento Luma theme.
+This functionality is 100% compatible with the Magento Luma theme.
 
 ### Templates customization
 
-In case you've customized your templates and some of them are built with a Javascript technology, you'll probably have to integrate them manually. It means if some blocks are modified by a javascript after the DOM load, the "on-the-fly" functionnality will not able to integrate them automatically.
+In case you are using customized templates and some of them would be built in Javascript, you will most probably have to do a manual integration (see below). It means that if some blocks are modified by a javascript after the DOM load, the "on-the-fly" functionnality will not anymore be able to integrate them automatically.
 
-## 3. Manually integration of Magento templates (Magento server access required)
+## 3. Manual integration in Magento templates (Magento server access required)
 
-The final step before enjoying responsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
+In the case of a personalized template, to be able to benefit from fast and responsive images you might need to modify the PHP templates, to replace the `<img src="" />` element by `<img ci-src="" />`.
 
-Any Magento template file (.phtml) injecting images in your Magento shop via an `<img src>` HTML attribute should be modified as shown below in order to deliver responsive images over Cloudimage.
+Any Magento template file (.phtml) injecting images in your Magento shop via an `<img src>` HTML attribute should be modified as shown below in order to deliver responsive images wih Cloudimage.
 
 ### Example
 
@@ -136,4 +136,4 @@ $cloudImageHelper = $this->helper(\Cloudimage\Responsive\Helper\Config::class);
 </span>
 ```
 
-If you have a issues with adapting your templates files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
+If you have any issue with the modification your template files, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
