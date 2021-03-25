@@ -10,8 +10,21 @@ This Mangeto 2 module implements the Cloudimage Responsive Images Plugin on Mage
 
 There are 2 steps for enabling the plugin on your Magento 2 shop:
 1. Install Cloudimage Responsive module for Magento 2
-2. Adapt the Magento templates to enable Cloudimage
+2. Adapt the Magento templates to enable Cloudimage (on-the-fly or manually)
 
+### Warning
+
+This version integrate changes in the Module's name and we therefore recommend a complete un-installation and re-installation to avoid any issue with your website if you are currently using a version below 1.1.0
+Below the step by step guide to perform a smooth update:
+1. Remove the Cloudimage Responsive plugin from the package
+2. Remove all manual templates integration and all module references
+3. Once the package is modified, deploy it
+4. Remove the Cloudimage module row in the setup_module table with the following SQL request: ``` DELETE FROM setup_module WHERE module = 'CloudImage_Responsive' ```
+5. Install this version in the package (standard new installation as described below)
+6. Make all tests required
+7. Once the package is ready, deploy them
+It will briefly stop optimizing images through Cloudimage, but no broken image will be visible as a result of the update.
+You also can skip the steps 1 to 3 in order to perform a faster update, but the images will be broken until the new version is fully deployed.
 
 ## 1. Install Cloudimage Responsive module for Magento 2
 
