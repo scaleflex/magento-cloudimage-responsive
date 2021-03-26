@@ -23,7 +23,7 @@ Below the step by step guide to perform a smooth update:
 5. Install this version in the package (standard new installation as described below)
 6. Make all tests required
 7. Once the package is ready, deploy them
-8. 
+
 It will briefly stop optimizing images through Cloudimage, but no broken image will be visible as a result of the update.
 You also can skip the steps 1 to 3 in order to perform a faster update, but the images will be broken until the new version is fully deployed.
 
@@ -109,7 +109,7 @@ Any Magento template file (.phtml) injecting images in your Magento shop via an 
 
 ### Example
 
-For example, the Magento product catalog page template `image_with_borders.phtml` can be found under `product/` folder on your Magento server. 
+As an example, the Magento product catalog page template `image_with_borders.phtml` can be found under `product/` folder on your Magento server. 
 
 1. Copy Magento original template in your theme: `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/product/image_with_borders.phtml`
 
