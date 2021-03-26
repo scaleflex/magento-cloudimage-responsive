@@ -20,9 +20,9 @@ Below the step by step guide to perform a smooth update:
 2. Remove all manual templates integration and all module references
 3. Once the package is modified, deploy it
 4. Remove the Cloudimage module row in the setup_module table with the following SQL request: ``` DELETE FROM setup_module WHERE module = 'CloudImage_Responsive' ```
-5. Install this version in the package (standard new installation as described below)
+5. Install this latest version in the package (standard new installation as described below)
 6. Make all tests required
-7. Once the package is ready, deploy them
+7. Once the package is ready, deploy it
 
 It will briefly stop optimizing images through Cloudimage, but no broken image will be visible as a result of the update.
 You also can skip the steps 1 to 3 in order to perform a faster update, but the images will be broken until the new version is fully deployed.
