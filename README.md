@@ -23,6 +23,7 @@ Below the step by step guide to perform a smooth update:
 5. Install this version in the package (standard new installation as described below)
 6. Make all tests required
 7. Once the package is ready, deploy them
+8. 
 It will briefly stop optimizing images through Cloudimage, but no broken image will be visible as a result of the update.
 You also can skip the steps 1 to 3 in order to perform a faster update, but the images will be broken until the new version is fully deployed.
 
