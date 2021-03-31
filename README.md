@@ -33,7 +33,7 @@ You also can skip the steps 1 to 3 in order to perform a faster update, but the 
 
 Cloudimage supports Magento Open Source and Commerce Edition from version 2 onwards.
 
-To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration) and get your Cloudimage token.
+To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration?utm_source=magento-plugin&utm_medium=website&utm_campaign=magento-campaign) and get your Cloudimage token.
 This token is required to configure the Magento plugin.
 
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
