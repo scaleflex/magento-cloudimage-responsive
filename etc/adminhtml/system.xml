@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <!--
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive\etc\adminhtml
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage\etc\adminhtml
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="cloud_image" translate="label" sortOrder="200">
+        <tab id="cloudimage" translate="label" sortOrder="200">
             <label>Cloudimage by Scaleflex</label>
         </tab>
-        <section id="cloudimage_responsive" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>Cloudimage Responsive</label>
-            <tab>cloud_image</tab>
-            <resource>Cloudimage_Responsive::config</resource>
+        <section id="scaleflex_cloudimage" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Cloudimage</label>
+            <tab>cloudimage</tab>
+            <resource>Scaleflex_Cloudimage::config</resource>
             <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Cloudimage Responsive Active</label>
+                    <label>Scaleflex Cloudimage Active</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[]]></comment>
                 </field>
@@ -69,6 +69,20 @@
                     <depends>
                         <field id="custom_function_active">1</field>
                     </depends>
+                </field>
+                <field id="image_quality" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Image Quality</label>
+                    <source_model>Scaleflex\Cloudimage\Model\Config\Source\ImageQuality</source_model>
+                    <comment><![CDATA[The smaller the value, the more your image will be compressed. Careful — the quality of the image will decrease as well. By default, 100.]]></comment>
+                </field>
+                <field id="ignore_svg" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ignore SVG images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[By default, yes.]]></comment>
+                </field>
+                <field id="library_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Custom Library Options</label>
+                    <comment><![CDATA[For advanced users only! This will modify the library URL. Must begin with the symbol &. By default, leave empty.]]></comment>
                 </field>
             </group>
         </section>

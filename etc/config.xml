@@ -2,11 +2,15 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <cloudimage_responsive>
+        <scaleflex_cloudimage>
             <options>
                 <do_not_replace_url>1</do_not_replace_url>
                 <lazy_loading>1</lazy_loading>
             </options>
-        </cloudimage_responsive>
+            <advanced>
+                <image_quality>100</image_quality>
+                <ignore_svg>1</ignore_svg>
+            </advanced>
+        </scaleflex_cloudimage>
     </default>
 </config>

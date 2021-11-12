@@ -1,17 +1,17 @@
 <?php
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace Cloudimage\Responsive\Block;
+namespace Scaleflex\Cloudimage\Block;
 
-use Cloudimage\Responsive\Helper\Config;
+use Scaleflex\Cloudimage\Helper\Config;
 use Magento\Framework\View\Element\Template;
 use Zend\Json\Json;
 
@@ -80,13 +80,18 @@ class Tag extends Template
     }
 
     /**
-     * Get Cloudimage Responsive plugin config
+     * Get Scaleflex Cloudimage plugin config
      *
      * @return string
      */
     public function getJsonConfig()
     {
         return Json::encode($this->config->getConfiguration());
+    }
+
+    public function getLibraryOptions()
+    {
+        return $this->config->getLibraryOptions();
     }
 
     /**

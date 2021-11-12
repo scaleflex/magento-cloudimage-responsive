@@ -1,15 +1,15 @@
 <?php
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-/** @var Cloudimage\Responsive\Block\Tag $block */
+/** @var Scaleflex\Cloudimage\Block\Tag $block */
 if ($block->isInvalidToken()):
     return;
 endif;
@@ -25,7 +25,7 @@ window.lazySizesConfig.init = false;
 <?php endif; ?>
 
 <!-- Add js-cloudimage-responsiv library -->
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-responsive/4.7.0-beta.0/plain/js-cloudimage-responsive.min.js?vh=1ee401&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-responsive/4.7.0-beta.0/plain/js-cloudimage-responsive.min.js?vh=1ee401&func=proxy<?= $block->getLibraryOptions() ?>"></script>
 
 <!-- Initialize cloudimage responsive -->
 <script>
