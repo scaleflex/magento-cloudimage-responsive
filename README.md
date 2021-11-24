@@ -1,4 +1,4 @@
-# Scaleflex Cloudimage Images module for Magento 2
+# Scaleflex Cloudimage responsive module for Magento 2
 
 ## Introduction
 
