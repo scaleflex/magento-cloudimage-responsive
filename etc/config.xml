@@ -8,7 +8,7 @@
                 <lazy_loading>1</lazy_loading>
             </options>
             <advanced>
-                <image_quality>100</image_quality>
+                <image_quality>90</image_quality>
                 <ignore_svg>1</ignore_svg>
             </advanced>
         </scaleflex_cloudimage>

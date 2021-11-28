@@ -1,6 +1,6 @@
 {
     "name": "scaleflex/module-cloudimage",
-    "description": "Scaleflex Cloudimage Plugin Module for Magento 2.x",
+    "description": "Scaleflex Cloudimage responsive module for Magento 2",
     "require": {
         "magento/framework": ">=100.0.0",
         "ext-dom": "*",
