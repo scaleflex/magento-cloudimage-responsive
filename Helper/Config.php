@@ -31,7 +31,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_CUSTOM_FUNCTION_ACTIVE = 'scaleflex_cloudimage/advanced/custom_function_active';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_CUSTOM_FUNCTION = 'scaleflex_cloudimage/advanced/custom_function';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_IMAGE_QUALITY = 'scaleflex_cloudimage/advanced/image_quality';
-    const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG = 'scaleflex_cloudimage/advanced/process_svg';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG = 'scaleflex_cloudimage/advanced/ignore_svg';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS = 'scaleflex_cloudimage/advanced/library_options';
 
     /**

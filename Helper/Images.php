@@ -60,7 +60,11 @@ class Images extends AbstractHelper
             foreach ($dom->getElementsByTagName('img') as $element) {
                 /** @var DOMElement $element */
                 if ($element->hasAttribute('src')) {
-                    if (strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg' && $ignoreSvg) {
+                    if ($element->hasAttribute('data-lazy-off')
+                        || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                        continue;
+                    }
+                    if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
                         continue;
                     }
                     $element->setAttribute('ci-src', $element->getAttribute('src') . $quality);
