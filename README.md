@@ -1,22 +1,22 @@
-# Cloudimage Responsive Images module for Magento 2
+# Scaleflex Cloudimage responsive module for Magento 2
 
 ## Introduction
 
 Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
 
-The [Cloudimage Responsive Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
+The [Scaleflex Cloudimage Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
 
-This Magento 2 module implements the Cloudimage Responsive Images Plugin on Magento 2 shops and accelerates your shop's landing page, category and product pages. 
+This Magento 2 module implements the Scaleflex Cloudimage Images Plugin on Magento 2 shops and accelerates your shop's landing page, category and product pages. 
 
 There are 2 steps for enabling the plugin on your Magento 2 shop:
-1. Install Cloudimage Responsive module for Magento 2
+1. Install Scaleflex Cloudimage module for Magento 2
 2. Adapt the Magento templates to enable Cloudimage (on-the-fly or manually)
 
 ### Warning
 
 This version integrate changes in the Module's name and we therefore recommend a complete un-installation and re-installation to avoid any issue with your website if you are currently using a version below 1.1.0
 Below the step by step guide to perform a smooth update:
-1. Remove the Cloudimage Responsive plugin from the package
+1. Remove the Scaleflex Cloudimage plugin from the package
 2. Remove all manual templates integration and all module references
 3. Once the package is modified, deploy it
 4. Remove the Cloudimage module row in the setup_module table with the following SQL request: ``` DELETE FROM setup_module WHERE module = 'CloudImage_Responsive' ```
@@ -27,7 +27,7 @@ Below the step by step guide to perform a smooth update:
 It will briefly stop optimizing images through Cloudimage, but no broken image will be visible as a result of the update.
 You also can skip the steps 1 to 3 in order to perform a faster update, but the images will be broken until the new version is fully deployed.
 
-## 1. Install Cloudimage Responsive module for Magento 2
+## 1. Install Scaleflex Cloudimage module for Magento 2
 
 ### Prerequisites
 
@@ -45,27 +45,27 @@ To be able to install the module by Composer, you need to get a copy of the modu
 
 ```shell
 composer config repositories.cloudimage vcs https://github.com/scaleflex/magento-cloudimage-responsive
-composer require cloudimage/module-responsive-plugin --sort-packages
+composer require scaleflex/module-cloudimage
 ```
 
 Enable and install following modules in Magento:
 
 ```shell
-php bin/magento module:enable Cloudimage_Responsive
+php bin/magento module:enable Scaleflex_Cloudimage
 php bin/magento setup:upgrade
 ```
 
 ### Configuration
 
-Once the steps listed above are completed enter your Cloudimage token into the Cloudimage Responsive module configuration the Magento admin interface:
+Once the steps listed above are completed enter your Cloudimage token into the Scaleflex Cloudimage module configuration the Magento admin interface:
 
 ```
-Stores > Configuration > Cloudimage By Scaleflex > Cloudimage Responsive
+Stores > Configuration > Cloudimage By Scaleflex > Scaleflex Cloudimage
 ```
 
-![Cloudimage Responsive Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "Cloudimage Responsive Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "Scaleflex Cloudimage Configuration Page")
 
-Expand the `General` section and activate the module by selecting `Yes` in the `Cloudimage Responsive Active` dropdown. Enter your Cloudimage token and configure the Options.
+Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown. Enter your Cloudimage token and configure the Options.
 
 After saving the configuration, you will be asked to flush your Magento cache.
 
@@ -91,7 +91,7 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 ## 2. Integration "on-the-fly" in Magento templates
 
-Once activated, the Cloudimage Responsive module will replace "on the fly" your template's classic image tag elements. Specifically, all image tags detected with a src attribute will be replaced with a ci-src attribute and will therefore be processed through the Cloudimage infrastructure, allowing transformations and CDN caching.
+Once activated, the Scaleflex Cloudimage module will replace "on the fly" your template's classic image tag elements. Specifically, all image tags detected with a src attribute will be replaced with a ci-src attribute and will therefore be processed through the Cloudimage infrastructure, allowing transformations and CDN caching.
 
 ### Compatibility
 
@@ -128,7 +128,7 @@ Template : `app/design/frontend/<your-theme>/default/Magento_Catalog/templates/p
 ?>
 
 <?php
-$cloudImageHelper = $this->helper(\Cloudimage\Responsive\Helper\Config::class);
+$cloudImageHelper = $this->helper(\Scaleflex\Cloudimage\Helper\Config::class);
 ?>
 
 <span class="product-image-container" style="width:<?= $block->escapeHtmlAttr($block->getWidth()) ?>px;">

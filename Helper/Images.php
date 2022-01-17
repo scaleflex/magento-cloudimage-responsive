@@ -1,26 +1,39 @@
 <?php
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace Cloudimage\Responsive\Helper;
+namespace Scaleflex\Cloudimage\Helper;
 
 use domDocument;
 use DOMElement;
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
 
 /**
  * Class Images
- * @package Cloudimage\Responsive\Helper
+ * @package Scaleflex\Cloudimage\Helper
  */
 class Images extends AbstractHelper
 {
+    /**
+     * @var Config
+     */
+    private $config;
+
+    public function __construct(
+        Config $config,
+        Context $context
+    ) {
+        parent::__construct($context);
+        $this->config = $config;
+    }
 
     /**
      * Process html and replace image src attribute with ci-src
@@ -38,10 +51,23 @@ class Images extends AbstractHelper
             $dom->preserveWhiteSpace = false;
             $replaceHtml = false;
 
+            $quality = '';
+            if ($this->config->getImageQuality() < 100) {
+                $quality = '?q=' . $this->config->getImageQuality();
+            }
+            $ignoreSvg = $this->config->isIgnoreSvg();
+
             foreach ($dom->getElementsByTagName('img') as $element) {
                 /** @var DOMElement $element */
                 if ($element->hasAttribute('src')) {
-                    $element->setAttribute('ci-src', $element->getAttribute('src'));
+                    if ($element->hasAttribute('data-lazy-off')
+                        || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                        continue;
+                    }
+                    if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
+                        continue;
+                    }
+                    $element->setAttribute('ci-src', $element->getAttribute('src') . $quality);
                     $element->removeAttribute('src');
                     $replaceHtml = true;
                 }

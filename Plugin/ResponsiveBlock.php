@@ -1,18 +1,18 @@
 <?php
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace Cloudimage\Responsive\Plugin;
+namespace Scaleflex\Cloudimage\Plugin;
 
-use Cloudimage\Responsive\Helper\Config;
-use Cloudimage\Responsive\Helper\Images;
+use Scaleflex\Cloudimage\Helper\Config;
+use Scaleflex\Cloudimage\Helper\Images;
 
 class ResponsiveBlock
 {

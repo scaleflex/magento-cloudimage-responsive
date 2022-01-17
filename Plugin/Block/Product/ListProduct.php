@@ -1,17 +1,17 @@
 <?php
 /**
- * This file is part of Cloudimage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category Cloudimage
- * @package Cloudimage\Responsive
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace Cloudimage\Responsive\Plugin\Block\Product;
+namespace Scaleflex\Cloudimage\Plugin\Block\Product;
 
-use Cloudimage\Responsive\Plugin\ResponsiveBlock;
+use Scaleflex\Cloudimage\Plugin\ResponsiveBlock;
 use Magento\Catalog\Block\Product\ListProduct as ProductList;
 
 class ListProduct extends ResponsiveBlock
