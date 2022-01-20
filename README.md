@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world. 
+Cloudimage is a scalable image CDN and proxy for transforming and optimizing images on-the-fly and accelerating them via rocket-fast Content Delivery Networks all around the world.
 
 The [Scaleflex Cloudimage Images Plugin](https://scaleflex.github.io/js-cloudimage-responsive) is a JS plugin for implementing Cloudimage in your code automatically and enabling responsive images on any web or mobile application. 
 
@@ -60,10 +60,10 @@ php bin/magento setup:upgrade
 Once the steps listed above are completed enter your Cloudimage token into the Scaleflex Cloudimage module configuration the Magento admin interface:
 
 ```
-Stores > Configuration > Cloudimage By Scaleflex > Scaleflex Cloudimage
+Stores > Configuration > Cloudimage By Scaleflex > Cloudimage
 ```
 
-![Scaleflex Cloudimage Plugin Configuration](doc/images/cloudimage_responsive_plugin_config.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/cloudimage_plugin_config.png "Scaleflex Cloudimage Configuration Page")
 
 Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown. Enter your Cloudimage token and configure the Options.
 
@@ -79,7 +79,9 @@ Following options are available:
 
 **Ignore Image Size Style:** useful for improving compatibility with some themes.
 
-**Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.
+**Lazy Loading:** if enabled, images will be lazy-loaded for better loading times and user experience.*
+
+*lazy loading can have variable results on some websites as for the first rows of images loaded, therefore it is recommended to make use of an integrated new class provided: “lazy-off”. You can specify the "lazy-off" class either in the page builder through the back-office, or in the templates directly (eg. category page and product page).
 
 ## Advanced Configuration [Optional]
 
@@ -88,6 +90,13 @@ This setting is for advanced users only and allows to inject a custom JS functio
 **Inject Custom JS function:** If enabled, you will be able to customize the JS function used dynamically to get the DOM information.
 
 **Custom js function:** The js function to customize Cloudimage library.
+
+**(new) Image Quality**: Customizes the image quality, therefore compression -size- applied by default. (warning, a setting under 80 might have a potentially visible impact)
+
+**(new) Ignore SVG images**: If enabled, all SVG images will be skipped from acceleration as anyway vector images will not be compressed.
+
+**(new) Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
+
 
 ## 2. Integration "on-the-fly" in Magento templates
 

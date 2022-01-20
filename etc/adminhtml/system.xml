@@ -73,7 +73,7 @@
                 <field id="image_quality" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Image Quality</label>
                     <source_model>Scaleflex\Cloudimage\Model\Config\Source\ImageQuality</source_model>
-                    <comment><![CDATA[The smaller the value, the more your image will be compressed. Careful — the quality of the image will decrease as well. By default, 100.]]></comment>
+                    <comment><![CDATA[The smaller the value, the more your image will be compressed. Careful — the quality of the image will decrease as well. By default, 90.]]></comment>
                 </field>
                 <field id="ignore_svg" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Ignore SVG images</label>
