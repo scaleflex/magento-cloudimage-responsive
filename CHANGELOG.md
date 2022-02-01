@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2022-02-01
+
+* Remove "/v7" from the URL part option added
+
 ## [2.0.0] - 2022-01-17
 
   * Add a text field in the configuration to modify the URL for retrieving the Cloudimage library

@@ -97,6 +97,8 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **(new) Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
 
+**(new) Remove v7**: Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.
+
 
 ## 2. Integration "on-the-fly" in Magento templates
 

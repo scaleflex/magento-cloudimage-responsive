@@ -84,6 +84,11 @@
                     <label>Custom Library Options</label>
                     <comment><![CDATA[For advanced users only! This will modify the library URL. Must begin with the symbol &. By default, leave empty.]]></comment>
                 </field>
+                <field id="remove_v7" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remove v7</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.]]></comment>
+                </field>
             </group>
         </section>
     </system>
