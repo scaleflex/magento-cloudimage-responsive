@@ -64,6 +64,9 @@ class Tag extends Template
         if ($this->config->isIgnoreStyleImgSize()) {
             $config .= 'ignoreStyleImgSize:true, ';
         }
+        if ($this->config->isRemoveV7()) {
+            $config .= 'apiVersion:null, ';
+        }
         if ($this->config->isCustomFunctionActive()) {
             $config .= 'processQueryString: function (props) ' . $this->config->getCustomFunction() . ', ';
         }
