@@ -2344,15 +2344,25 @@ fotoramaVersion = '4.6.4';
                         height: img.height,
                         ratio: img.width / img.height
                     };
-                    // TODO: Scaleflex override Fotorama
+                    // Scaleflex Cloud Image override Fotorama
                     setMeasures(imgData.measures.width, imgData.measures.height, imgData.measures.ratio, index);
-                    $img
-                        .off('load error')
-                        .addClass('' + (fullFLAG ? imgFullClass: imgClass))
-                        .attr('aria-hidden', 'true')
-                        .attr('ci-src', $img.context.currentSrc)
-                        .removeAttr('src')
-			            .prependTo($frame);
+
+                    if (window.ciEnable) {
+                        $img
+                            .off('load error')
+                            .addClass('' + (fullFLAG ? imgFullClass: imgClass))
+                            .attr('aria-hidden', 'true')
+                            .attr('ci-src', $img.context.currentSrc)
+                            .removeAttr('src')
+                            .prependTo($frame);
+                    } else {
+                        $img
+                            .off('load error')
+                            .addClass('' + (fullFLAG ? imgFullClass: imgClass))
+                            .attr('aria-hidden', 'true')
+                            .prependTo($frame);
+                    }
+
                     if ($frame.hasClass(stageFrameClass) && !$frame.hasClass(videoContainerClass)) {
                         $frame.attr("href", $img.attr("src"));
                     }
@@ -2376,8 +2386,10 @@ fotoramaVersion = '4.6.4';
                             reset();
                         }
                     }, 0);
-                    // TODO: Trigger Action of CiResponsive
-                    window.ciResponsive.process();
+                    // Scaleflex Cloud Image End Override
+                    if (window.ciEnable) {
+                        window.ciResponsive.process();
+                    }
                 }
 
                 if (!src) {
