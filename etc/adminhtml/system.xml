@@ -81,9 +81,9 @@
                     <comment><![CDATA[By default, yes.]]></comment>
                 </field>
                  <field id="fortorama_compatibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
-                     <label>Fotorama Compatibility</label>
+                     <label>Fotorama Compatibility Mode</label>
                      <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                     <comment><![CDATA[Fotorama compatibility, default no]]></comment>
+                     <comment><![CDATA[Fotorama compatibility mode, default no]]></comment>
                  </field>
                 <field id="library_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Custom Library Options</label>
