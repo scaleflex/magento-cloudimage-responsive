@@ -14,15 +14,14 @@ define([
     'use strict';
 
     return function () {
-        // TODO: Disabled old implementation
-        // $('[data-gallery-role=gallery-placeholder]').on('gallery:loaded', function () {
-        //     $(this).on('fotorama:load', function (e, fotorama, extra) {
-        //         if (extra.frame.type === 'image') {
-        //             let img = '<img ci-src="'+extra.frame.img+'" class="fotorama__img" aria-hidden="false">';
-        //             extra.frame.$stageFrame.html(img);
-        //         }
-        //         window.ciResponsive.process();
-        //     });
-        // });
+        $('[data-gallery-role=gallery-placeholder]').on('gallery:loaded', function () {
+            $(this).on('fotorama:load', function (e, fotorama, extra) {
+                if (extra.frame.type === 'image') {
+                    let img = '<img ci-src="'+extra.frame.img+'" class="fotorama__img" aria-hidden="false">';
+                    extra.frame.$stageFrame.html(img);
+                }
+                window.ciResponsive.process();
+            });
+        });
     }
 });

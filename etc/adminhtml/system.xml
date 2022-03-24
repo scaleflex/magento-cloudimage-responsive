@@ -80,6 +80,11 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[By default, yes.]]></comment>
                 </field>
+                 <field id="fortorama_compatibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                     <label>Fotorama Compatibility</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                     <comment><![CDATA[Fotorama compatibility, default no]]></comment>
+                 </field>
                 <field id="library_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Custom Library Options</label>
                     <comment><![CDATA[For advanced users only! This will modify the library URL. Must begin with the symbol &. By default, leave empty.]]></comment>

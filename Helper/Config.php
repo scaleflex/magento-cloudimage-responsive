@@ -34,6 +34,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG = 'scaleflex_cloudimage/advanced/ignore_svg';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS = 'scaleflex_cloudimage/advanced/library_options';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7 = 'scaleflex_cloudimage/advanced/remove_v7';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY = 'scaleflex_cloudimage/advanced/fortorama_compatibility';
 
     /**
      * @return bool
@@ -221,5 +222,12 @@ class Config extends AbstractHelper
     public function isRemoveV7()
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFotoramaCompatibility() {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY);
     }
 }

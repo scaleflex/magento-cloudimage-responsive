@@ -2344,10 +2344,10 @@ fotoramaVersion = '4.6.4';
                         height: img.height,
                         ratio: img.width / img.height
                     };
-                    // Scaleflex Cloud Image override Fotorama
+                    // Scaleflex_Cloudimage Fotorama Compatibility: Add sc-src
                     setMeasures(imgData.measures.width, imgData.measures.height, imgData.measures.ratio, index);
 
-                    if (window.ciEnable) {
+                    if (window.ciFotoramaCompatibility) {
                         $img
                             .off('load error')
                             .addClass('' + (fullFLAG ? imgFullClass: imgClass))
@@ -2386,8 +2386,8 @@ fotoramaVersion = '4.6.4';
                             reset();
                         }
                     }, 0);
-                    // Scaleflex Cloud Image End Override
-                    if (window.ciEnable) {
+                    // Scaleflex_Cloudimage Image Fotorama Compatibility, load ciResponsive()
+                    if (window.ciFotoramaCompatibility) {
                         window.ciResponsive.process();
                     }
                 }
