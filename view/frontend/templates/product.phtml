@@ -15,14 +15,16 @@ if ($block->isInvalidToken()):
 endif;
 ?>
 <?php if($block->getConfig()->isFotoramaCompatibility()){ ?>
-<script type="text/javascript">
-    window.ciFotoramaCompatibility = true;
-</script>
-<?php } ?>
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Scaleflex_Cloudimage/js/product": {}
+    <script type="text/javascript">
+        window.ciFotoramaCompatibility = true;
+    </script>
+<?php } else { ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Scaleflex_Cloudimage/js/product": {}
+            }
         }
-    }
-</script>
+    </script>
+<?php } ?>
+
