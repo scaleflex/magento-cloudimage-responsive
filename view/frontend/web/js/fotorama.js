@@ -2272,7 +2272,6 @@ fotoramaVersion = '4.6.4';
         }
 
         function loadImg(indexes, type, specialMeasures, again) {
-
             eachIndex(indexes, type, function (i, index, dataFrame, $frame, key, frameData) {
 
                 if (!$frame) return;
@@ -2291,7 +2290,7 @@ fotoramaVersion = '4.6.4';
                     src = dataFrame[srcKey],
                     dummy = fullFLAG ? dataFrame['img'] : dataFrame[type === 'stage' ? 'thumb' : 'img'];
 
-		if (type === 'navThumb') $frame = frameData.$wrap;
+		        if (type === 'navThumb') $frame = frameData.$wrap;
 
                 function triggerTriggerEvent(event) {
                     var _index = normalizeIndex(index);
@@ -2352,7 +2351,7 @@ fotoramaVersion = '4.6.4';
                             .off('load error')
                             .addClass('' + (fullFLAG ? imgFullClass: imgClass))
                             .attr('aria-hidden', 'true')
-                            .attr('ci-src', $img.context.currentSrc)
+                            .attr('ci-src', $img.context.getAttribute('ci-src'))
                             .removeAttr('src')
                             .prependTo($frame);
                     } else {
@@ -2386,10 +2385,6 @@ fotoramaVersion = '4.6.4';
                             reset();
                         }
                     }, 0);
-                    // Scaleflex_Cloudimage Image Fotorama Compatibility, load ciResponsive()
-                    if (window.ciFotoramaCompatibility) {
-                        window.ciResponsive.process();
-                    }
                 }
 
                 if (!src) {
@@ -2403,15 +2398,24 @@ fotoramaVersion = '4.6.4';
                         return !touchedFLAG || !_i-- && !SLOW;
                     }, function () {
                         loaded();
+                        // Scaleflex_Cloudimage Image Fotorama Compatibility, load ciResponsive()
+                        if (window.ciFotoramaCompatibility) {
+                            window.ciResponsive.process();
+                        }
                     });
                 }
+
 
                 if (!$.Fotorama.cache[src]) {
                     $.Fotorama.cache[src] = '*';
 
-                    $img
-                        .on('load', waitAndLoad)
-                        .on('error', error);
+                    if (window.ciFotoramaCompatibility) {
+                        setTimeout(waitAndLoad, 0);
+                    } else {
+                        $img
+                            .on('load', waitAndLoad)
+                            .on('error', error);
+                    }
                 } else {
                     (function justWait() {
                         if ($.Fotorama.cache[src] === 'error') {
@@ -2424,8 +2428,14 @@ fotoramaVersion = '4.6.4';
                     })();
                 }
 
+
                 frameData.state = '';
-                img.src = src;
+
+                if (window.ciFotoramaCompatibility) {
+                    img.setAttribute('ci-src', src);
+                } else {
+                    img.src = src;
+                }
 
                 if (frameData.data.caption) {
                     img.alt = frameData.data.caption || "";
