@@ -35,6 +35,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS = 'scaleflex_cloudimage/advanced/library_options';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7 = 'scaleflex_cloudimage/advanced/remove_v7';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY = 'scaleflex_cloudimage/advanced/fortorama_compatibility';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO = 'scaleflex_cloudimage/advanced/devicepixelratio';
 
     /**
      * @return bool
@@ -212,6 +213,17 @@ class Config extends AbstractHelper
     public function isIgnoreSvg()
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG);
+    }
+
+
+    /**
+     * Device pixel ratio
+     *
+     * @return string
+     */
+    public function getDevicePixelRatio()
+    {
+        return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO);
     }
 
     /**

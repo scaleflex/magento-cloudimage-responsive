@@ -11,6 +11,7 @@
                 <image_quality>90</image_quality>
                 <ignore_svg>1</ignore_svg>
                 <fortorama_compatibility>0</fortorama_compatibility>
+                <devicepixelratio>2</devicepixelratio>
             </advanced>
         </scaleflex_cloudimage>
     </default>

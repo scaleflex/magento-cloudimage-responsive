@@ -70,6 +70,7 @@ class Tag extends Template
         if ($this->config->isCustomFunctionActive()) {
             $config .= 'processQueryString: function (props) ' . $this->config->getCustomFunction() . ', ';
         }
+        $config .= 'devicePixelRatioList: ' . $this->formatRatioList($this->config->getDevicePixelRatio()) . ', ';
         $config .= 'token:\'' . $this->config->getToken() . '\' ';
         return $config;
     }
@@ -103,5 +104,23 @@ class Tag extends Template
     public function isLazyLoadingActive()
     {
         return $this->config->isLazyLoading();
+    }
+
+    /** @return string */
+    public function formatRatioList($pixelRatio)
+    {
+        $ratioList = '[]';
+        switch ($pixelRatio) {
+            case '1':
+                $ratioList = '[1]';
+                break;
+            case '1.5':
+                $ratioList = '[1, 1.5]';
+                break;
+            case '2':
+                $ratioList = '[1, 1.5, 2]';
+                break;
+        }
+        return $ratioList;
     }
 }
