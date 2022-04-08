@@ -107,6 +107,8 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 ## 2. Integration "on-the-fly" in Magento templates
 
+The final step before enjoying responsive and fast images is to modify the PHP templates to replace `<img src="" />` element by `<img ci-src="" />`.
+
 Once activated, the Scaleflex Cloudimage module will replace "on the fly" your template's classic image tag elements. Specifically, all image tags detected with a src attribute will be replaced with a ci-src attribute and will therefore be processed through the Cloudimage infrastructure, allowing transformations and CDN caching.
 
 ### Compatibility
