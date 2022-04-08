@@ -95,6 +95,8 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **(new) Ignore SVG images**: If enabled, all SVG images will be skipped from acceleration as anyway vector images will not be compressed.
 
+**(new) Maximum "Pixel ratio"**: List of supported device pixel ratios, default is 2, eg: 2 for Retina devices
+
 **(new) Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
 
 **(new) Remove v7**: Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.
