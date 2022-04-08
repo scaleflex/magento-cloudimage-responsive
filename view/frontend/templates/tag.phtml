@@ -1,15 +1,15 @@
 <?php
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\view\frontend\templates
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-/** @var CloudImage\Responsive\Block\Tag $block */
+/** @var Scaleflex\Cloudimage\Block\Tag $block */
 if ($block->isInvalidToken()):
     return;
 endif;
@@ -18,43 +18,19 @@ $config = $block->getConfig();
 <?php if ($block->isLazyLoadingActive()): ?>
 <!-- Add lazyload library -->
 <script>
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.init = false;
+window.lazySizesConfig = window.lazySizesConfig || {};
+window.lazySizesConfig.init = false;
 </script>
 <script src="https://cdn.scaleflex.it/filerobot/js-cloudimage-responsive/lazysizes.min.js"></script>
 <?php endif; ?>
 
 <!-- Add js-cloudimage-responsiv library -->
-<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-responsive/4.7.0-beta.0/plain/js-cloudimage-responsive.min.js?vh=1ee401&func=proxy"></script>
+<script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-responsive/4.8.5/plain/js-cloudimage-responsive.min.js?vh=1ee401&func=proxy<?= $block->getLibraryOptions() ?>"></script>
 
 <!-- Initialize cloudimage responsive -->
 <script>
-    window.ciResponsive = new window.CIResponsive({
-    <?php if ($config->isLazyLoading()): ?>
-
-        lazyLoading: true,
-    <?php endif; ?>
-    <?php if ($config->isDoNotReplaceUrl()): ?>
-
-        doNotReplaceURL: true,
-    <?php endif; ?>
-    <?php if ($config->isIgnoreNodeImgSize()): ?>
-
-        ignoreNodeImgSize: true,
-    <?php endif; ?>
-    <?php if ($config->isIgnoreStyleImgSize()): ?>
-
-        ignoreStyleImgSize: true,
-    <?php endif; ?>
-    <?php if ($config->isCustomFunctionActive()): ?>
-
-        processQueryString: function (props) <?= $config->getCustomFunction() ?>,
-    <?php endif; ?>
-
-        token: '<?= $block->escapeHtml($config->getToken()) ?>'
-    });
-    <?php if ($config->isLazyLoading()): ?>
-
-    window.lazySizes.init();
-    <?php endif; ?>
+window.ciResponsive = new window.CIResponsive({<?= $block->getConfigToString() ?>});
+<?php if ($config->isLazyLoading()): ?>
+window.lazySizes.init();
+<?php endif; ?>
 </script>

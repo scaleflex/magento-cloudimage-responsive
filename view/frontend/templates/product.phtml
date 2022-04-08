@@ -1,0 +1,30 @@
+<?php
+/**
+ * This file is part of Scaleflex Cloudimage
+ *
+ * @author Alyzeo LTD <info@alyzeo.com>
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
+ * @license BSD-3-Clause
+ * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
+ */
+
+/** @var Scaleflex\Cloudimage\Block\Tag $block */
+if ($block->isInvalidToken()):
+    return;
+endif;
+?>
+<?php if($block->getConfig()->isFotoramaCompatibility()){ ?>
+    <script type="text/javascript">
+        window.ciFotoramaCompatibility = true;
+    </script>
+<?php } else { ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Scaleflex_Cloudimage/js/product": {}
+            }
+        }
+    </script>
+<?php } ?>
+

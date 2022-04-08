@@ -1,28 +1,28 @@
 <?xml version="1.0"?>
 <!--
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\etc\adminhtml
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage\etc\adminhtml
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="cloud_image" translate="label" sortOrder="200">
-            <label>CloudImage by Scaleflex</label>
+        <tab id="cloudimage" translate="label" sortOrder="200">
+            <label>Cloudimage by Scaleflex</label>
         </tab>
-        <section id="cloudimage_responsive" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
-            <label>CloudImage Responsive</label>
-            <tab>cloud_image</tab>
-            <resource>CloudImage_Responsive::config</resource>
+        <section id="scaleflex_cloudimage" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Cloudimage</label>
+            <tab>cloudimage</tab>
+            <resource>Scaleflex_Cloudimage::config</resource>
             <group id="general" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>CloudImage Responsive Active</label>
+                    <label>Scaleflex Cloudimage Active</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[]]></comment>
                 </field>
@@ -69,6 +69,35 @@
                     <depends>
                         <field id="custom_function_active">1</field>
                     </depends>
+                </field>
+                <field id="image_quality" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Image Quality</label>
+                    <source_model>Scaleflex\Cloudimage\Model\Config\Source\ImageQuality</source_model>
+                    <comment><![CDATA[The smaller the value, the more your image will be compressed. Careful — the quality of the image will decrease as well. By default, 90.]]></comment>
+                </field>
+                <field id="ignore_svg" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ignore SVG images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[By default, yes.]]></comment>
+                </field>
+                 <field id="fortorama_compatibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                     <label>Fotorama Compatibility Mode</label>
+                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                     <comment><![CDATA[Fotorama compatibility mode, default no]]></comment>
+                 </field>
+                 <field id="devicepixelratio" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum "Pixel ratio"</label>
+                    <source_model>Scaleflex\Cloudimage\Model\Config\Source\PixelRatio</source_model>
+                    <comment><![CDATA[List of supported device pixel ratios, eg: 2 for Retina devices]]></comment>
+                 </field>
+                <field id="library_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Custom Library Options</label>
+                    <comment><![CDATA[For advanced users only! This will modify the library URL. Must begin with the symbol &. By default, leave empty.]]></comment>
+                </field>
+                <field id="remove_v7" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Remove v7</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.]]></comment>
                 </field>
             </group>
         </section>

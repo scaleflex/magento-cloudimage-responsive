@@ -1,17 +1,17 @@
 <?php
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\Block
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 
-namespace CloudImage\Responsive\Block;
+namespace Scaleflex\Cloudimage\Block;
 
-use CloudImage\Responsive\Helper\Config;
+use Scaleflex\Cloudimage\Helper\Config;
 use Magento\Framework\View\Element\Template;
 use Zend\Json\Json;
 
@@ -22,6 +22,13 @@ class Tag extends Template
      */
     private $config;
 
+    /**
+     * Tag constructor.
+     *
+     * @param Config $config
+     * @param Template\Context $context
+     * @param array $data
+     */
     public function __construct(
         Config $config,
         Template\Context $context,
@@ -40,6 +47,35 @@ class Tag extends Template
     }
 
     /**
+     * @return string
+     */
+    public function getConfigToString(): string
+    {
+        $config = ' ';
+        if ($this->config->isLazyLoading()) {
+            $config .= 'lazyLoading:true, ';
+        }
+        if ($this->config->isDoNotReplaceUrl()) {
+            $config .= 'doNotReplaceURL:true, ';
+        }
+        if ($this->config->isIgnoreNodeImgSize()) {
+            $config .= 'ignoreNodeImgSize:true, ';
+        }
+        if ($this->config->isIgnoreStyleImgSize()) {
+            $config .= 'ignoreStyleImgSize:true, ';
+        }
+        if ($this->config->isRemoveV7()) {
+            $config .= 'apiVersion:null, ';
+        }
+        if ($this->config->isCustomFunctionActive()) {
+            $config .= 'processQueryString: function (props) ' . $this->config->getCustomFunction() . ', ';
+        }
+        $config .= 'devicePixelRatioList: ' . $this->formatRatioList($this->config->getDevicePixelRatio()) . ', ';
+        $config .= 'token:\'' . $this->config->getToken() . '\' ';
+        return $config;
+    }
+
+    /**
      * @return bool
      */
     public function isInvalidToken()
@@ -48,7 +84,7 @@ class Tag extends Template
     }
 
     /**
-     * Get CloudImage Responsive plugin config
+     * Get Scaleflex Cloudimage plugin config
      *
      * @return string
      */
@@ -57,11 +93,34 @@ class Tag extends Template
         return Json::encode($this->config->getConfiguration());
     }
 
+    public function getLibraryOptions()
+    {
+        return $this->config->getLibraryOptions();
+    }
+
     /**
      * @return bool
      */
     public function isLazyLoadingActive()
     {
         return $this->config->isLazyLoading();
+    }
+
+    /** @return string */
+    public function formatRatioList($pixelRatio)
+    {
+        $ratioList = '[]';
+        switch ($pixelRatio) {
+            case '1':
+                $ratioList = '[1]';
+                break;
+            case '1.5':
+                $ratioList = '[1, 1.5]';
+                break;
+            case '2':
+                $ratioList = '[1, 1.5, 2]';
+                break;
+        }
+        return $ratioList;
     }
 }

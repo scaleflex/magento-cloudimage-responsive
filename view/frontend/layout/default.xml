@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!--
 /**
- * This file is part of CloudImage Responsive
+ * This file is part of Scaleflex Cloudimage
  *
  * @author Alyzeo LTD <info@alyzeo.com>
- * @category CloudImage
- * @package CloudImage\Responsive\view\frontend\layout
+ * @category Scaleflex
+ * @package Scaleflex\Cloudimage
  * @license BSD-3-Clause
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
@@ -13,12 +13,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="page.wrapper">
-            <block
-                class="CloudImage\Responsive\Block\Tag"
-                name="cloud_image.responsive.tag"
-                template="CloudImage_Responsive::tag.phtml"
-                after="-"
-                ifconfig="cloudimage_responsive/general/active"/>
+            <block class="Scaleflex\Cloudimage\Block\Tag" name="scaleflex.cloudimage.tag" after="-"
+                   template="Scaleflex_Cloudimage::tag.phtml" ifconfig="scaleflex_cloudimage/general/active" />
         </referenceContainer>
     </body>
 </page>
