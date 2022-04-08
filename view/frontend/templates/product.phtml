@@ -14,10 +14,17 @@ if ($block->isInvalidToken()):
     return;
 endif;
 ?>
-<script type="text/x-magento-init">
-    {
-        "*": {
-            "Scaleflex_Cloudimage/js/product": {}
+<?php if($block->getConfig()->isFotoramaCompatibility()){ ?>
+    <script type="text/javascript">
+        window.ciFotoramaCompatibility = true;
+    </script>
+<?php } else { ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Scaleflex_Cloudimage/js/product": {}
+            }
         }
-    }
-</script>
+    </script>
+<?php } ?>
+

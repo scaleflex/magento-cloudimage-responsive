@@ -44,7 +44,8 @@ To be able to install the module by Composer, you need to get a copy of the modu
  
 
 ```shell
-composer config repositories.cloudimage vcs https://github.com/scaleflex/magento-cloudimage-responsive
+composer config repositories.cloudimage vcs https://github.co
+m/scaleflex/magento-cloudimage-responsive
 composer require scaleflex/module-cloudimage
 ```
 
@@ -87,17 +88,21 @@ Following options are available:
 
 This setting is for advanced users only and allows to inject a custom JS function into the Magento templates in order to support some specific Magento templates. Feel free to contact us in order to get the custom JS function to inject to address issues with your specific template.
 
-**Inject Custom JS function:** If enabled, you will be able to customize the JS function used dynamically to get the DOM information.
+**Inject Custom JS function**: If enabled, you will be able to customize the JS function used dynamically to get the DOM information.
 
-**Custom js function:** The js function to customize Cloudimage library.
+**Custom js function**: The js function to customize Cloudimage library.
 
-**(new) Image Quality**: Customizes the image quality, therefore compression -size- applied by default. (warning, a setting under 80 might have a potentially visible impact)
+**Image Quality**: Customizes the image quality, therefore compression -size- applied by default. (warning, a setting under 80 might have a potentially visible impact)
 
-**(new) Ignore SVG images**: If enabled, all SVG images will be skipped from acceleration as anyway vector images will not be compressed.
+**Ignore SVG images**: If enabled, all SVG images will be skipped from acceleration as anyway vector images will not be compressed.
 
-**(new) Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
+**(new) Fotorama Compatibility Mode**: Fotorama compatibility mode, default no
 
-**(new) Remove v7**: Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.
+**(new) Maximum "Pixel ratio"**: List of supported device pixel ratios, default is 2, eg: 2 for Retina devices
+
+**Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
+
+**Remove v7**: Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.
 
 
 ## 2. Integration "on-the-fly" in Magento templates
