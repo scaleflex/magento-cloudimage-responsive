@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.0.2] - 2022-04-08
 
-* Fotorama Compatibility Mode
+* Add Fotorama Compatibility Mode option
 * Add Device Pixel Max Ratio option
 
 ## [2.0.1] - 2022-02-01
