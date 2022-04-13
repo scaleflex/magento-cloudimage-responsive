@@ -42,7 +42,7 @@ class Config extends AbstractHelper
      */
     public function getApiUrl()
     {
-        return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_CDN_API_URL);
+        return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_CDN_API_URL, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -54,7 +54,7 @@ class Config extends AbstractHelper
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN,
-            ScopeInterface::SCOPE_WEBSITE
+            ScopeInterface::SCOPE_STORE
         );
     }
 
@@ -103,7 +103,8 @@ class Config extends AbstractHelper
     public function getImageQuality()
     {
         $imageQuality = (int)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_IMAGE_QUALITY
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_IMAGE_QUALITY,
+            ScopeInterface::SCOPE_STORE
         );
         if ($imageQuality > 0 && $imageQuality <= 100) {
             return $imageQuality;
@@ -118,7 +119,7 @@ class Config extends AbstractHelper
      */
     public function getLibraryOptions()
     {
-        $options = $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS);
+        $options = $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS, ScopeInterface::SCOPE_STORE);
         if (is_string($options) && strlen(trim($options)) > 0) {
             return trim($options);
         }
@@ -166,7 +167,7 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_DO_NOT_REPLACE_URL,
-            ScopeInterface::SCOPE_WEBSITE
+            ScopeInterface::SCOPE_STORE
         );
     }
 
@@ -177,7 +178,7 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE,
-            ScopeInterface::SCOPE_WEBSITE
+            ScopeInterface::SCOPE_STORE
         );
     }
 
@@ -188,7 +189,7 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_STYLE_IMG_SIZE,
-            ScopeInterface::SCOPE_WEBSITE
+            ScopeInterface::SCOPE_STORE
         );
     }
 
@@ -201,7 +202,7 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING,
-            ScopeInterface::SCOPE_WEBSITE
+            ScopeInterface::SCOPE_STORE
         );
     }
 
@@ -212,7 +213,7 @@ class Config extends AbstractHelper
      */
     public function isIgnoreSvg()
     {
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG);
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG, ScopeInterface::SCOPE_STORE);
     }
 
 
@@ -223,7 +224,7 @@ class Config extends AbstractHelper
      */
     public function getDevicePixelRatio()
     {
-        return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO);
+        return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -233,13 +234,13 @@ class Config extends AbstractHelper
      */
     public function isRemoveV7()
     {
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7);
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7, ScopeInterface::SCOPE_STORE);
     }
 
     /**
      * @return bool
      */
     public function isFotoramaCompatibility() {
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY);
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY, ScopeInterface::SCOPE_STORE);
     }
 }
