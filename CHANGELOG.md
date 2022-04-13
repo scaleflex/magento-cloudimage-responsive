@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.3] - 2022-04-19
+
+* Support Multiple store views(websites)
+
 ## [2.0.2] - 2022-04-08
 
 * Add Fotorama Compatibility Mode option
