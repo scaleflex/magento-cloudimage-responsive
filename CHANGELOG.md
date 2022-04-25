@@ -2,9 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.3] - 2022-04-19
+## [2.0.3] - 2022-04-27
 
 * Support Multiple store views(websites)
+* Add config to prevent image resize when set Device Pixel Max Ratio equal to 2
 
 ## [2.0.2] - 2022-04-08
 

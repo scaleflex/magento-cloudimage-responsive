@@ -90,6 +90,11 @@
                     <source_model>Scaleflex\Cloudimage\Model\Config\Source\PixelRatio</source_model>
                     <comment><![CDATA[List of supported device pixel ratios, eg: 2 for Retina devices]]></comment>
                  </field>
+                <field id="orgifsml" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Prevent Image Resize</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If you set Maximum "Pixel ratio" equal to 2, but some of your assets does not have min retina size(at least 2560x960), please enable this to prevent image resized. By default, yes.]]></comment>
+                </field>
                 <field id="library_options" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Custom Library Options</label>
                     <comment><![CDATA[For advanced users only! This will modify the library URL. Must begin with the symbol &. By default, leave empty.]]></comment>

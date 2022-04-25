@@ -12,6 +12,7 @@
                 <ignore_svg>0</ignore_svg>
                 <fortorama_compatibility>1</fortorama_compatibility>
                 <devicepixelratio>2</devicepixelratio>
+                <orgifsml>1</orgifsml>
                 <remove_v7>1</remove_v7>
             </advanced>
         </scaleflex_cloudimage>

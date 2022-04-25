@@ -36,6 +36,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7 = 'scaleflex_cloudimage/advanced/remove_v7';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY = 'scaleflex_cloudimage/advanced/fortorama_compatibility';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO = 'scaleflex_cloudimage/advanced/devicepixelratio';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML = 'scaleflex_cloudimage/advanced/orgifsml';
 
     /**
      * @return bool
@@ -189,6 +190,17 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_STYLE_IMG_SIZE,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    public function isOrgIfSml()
+    {
+        return (bool)$this->scopeConfig->getValue(
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML,
             ScopeInterface::SCOPE_STORE
         );
     }

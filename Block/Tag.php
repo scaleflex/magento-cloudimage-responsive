@@ -71,6 +71,9 @@ class Tag extends Template
             $config .= 'processQueryString: function (props) ' . $this->config->getCustomFunction() . ', ';
         }
         $config .= 'devicePixelRatioList: ' . $this->formatRatioList($this->config->getDevicePixelRatio()) . ', ';
+        if ($this->config->isOrgIfSml()) {
+            $config .= 'params: {org_if_sml: 1}, ';
+        }
         $config .= 'token:\'' . $this->config->getToken() . '\' ';
         return $config;
     }
