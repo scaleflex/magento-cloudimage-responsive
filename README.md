@@ -64,13 +64,15 @@ Once the steps listed above are completed enter your Cloudimage token into the S
 Stores > Configuration > Cloudimage By Scaleflex > Cloudimage
 ```
 
-![Scaleflex Cloudimage Plugin Configuration](doc/images/cloudimage_plugin_config.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/cloudimage_plugin_config_2.0.3.png "Scaleflex Cloudimage Configuration Page")
 
 Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown. Enter your Cloudimage token and configure the Options.
 
 After saving the configuration, you will be asked to flush your Magento cache.
 
 ## Options
+
+**(New) Support multiple websites and store views, now you can have difference token for each website.**
 
 Following options are available: 
 
@@ -96,9 +98,11 @@ This setting is for advanced users only and allows to inject a custom JS functio
 
 **Ignore SVG images**: If enabled, all SVG images will be skipped from acceleration as anyway vector images will not be compressed.
 
-**(new) Fotorama Compatibility Mode**: Fotorama compatibility mode, default no
+**Fotorama Compatibility Mode**: Fotorama compatibility mode, default no
 
-**(new) Maximum "Pixel ratio"**: List of supported device pixel ratios, default is 2, eg: 2 for Retina devices
+**Maximum "Pixel ratio"**: List of supported device pixel ratios, default is 2, eg: 2 for Retina devices
+
+**(New)Prevent Image Resize**: If you set Maximum "Pixel ratio" equal to 2, but some of your assets does not have min retina size(at least 2560x960), please enable this to prevent image resized
 
 **Custom Library Options**: Those optional parameters will be added to the request for each URL going through the Cloudimage acceleration infrastructure. It can allow you to force image formats, apply automatic transformations or watermarking, and might be used for troubleshooting purposes. (for advanced users only, please refer to the official [Cloudimage documentation here](https://docs/cloudimage.io) for the list of possible parameters)
 
