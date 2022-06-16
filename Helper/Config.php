@@ -37,6 +37,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY = 'scaleflex_cloudimage/advanced/fortorama_compatibility';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO = 'scaleflex_cloudimage/advanced/devicepixelratio';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML = 'scaleflex_cloudimage/advanced/orgifsml';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS = 'scaleflex_cloudimage/advanced/ignore_blocks';
 
     /**
      * @return bool
@@ -57,6 +58,29 @@ class Config extends AbstractHelper
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN,
             ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * Get ignore blocks
+     *
+     * @return array
+     */
+    public function getIgnoreBlocks()
+    {
+        $ignoreList   = [];
+        $ignoreBlocks =  $this->scopeConfig->getValue(
+                            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS,
+                            ScopeInterface::SCOPE_STORE
+                        );
+        if (!empty($ignoreBlocks)) {
+            $ignoreBlocks   = trim($ignoreBlocks);
+            $explodedBlocks = explode(",", $ignoreBlocks);
+            foreach ($explodedBlocks as $item) {
+                $ignoreList[] = trim($item);
+            }
+        }
+
+        return $ignoreList;
     }
 
     /**

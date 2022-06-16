@@ -104,6 +104,10 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.]]></comment>
                 </field>
+                <field id="ignore_blocks" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore blocks</label>
+                    <comment><![CDATA[Cloudimage will not affect on these blocks, separate by comma. For example: product.info.description, product.info.attribute]]></comment>
+                </field>
             </group>
         </section>
     </system>
