@@ -51,7 +51,6 @@ class ProcessImages implements ObserverInterface
             return;
         }
         $transport = $observer->getData('transport');
-        /** @var \Magento\Framework\View\Element\Template $block */
         $block     = $observer->getData('block');
 
         if ($this->isIgnoreBlock($block)) {
