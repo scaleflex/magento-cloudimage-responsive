@@ -1299,7 +1299,7 @@ define([
                 context.find('.product-image-photo').attr('src', justAnImage.img);
                 if (window.ciResponsive) {
                     context.find('.product-image-photo').attr('ci-src', justAnImage.img);
-                    context.find('.product-image-photo').attr('srcset', '');
+                    // context.find('.product-image-photo').attr('srcset', '');
                     setTimeout(function() {
                         window.ciResponsive.process();
                     }, 1000);
