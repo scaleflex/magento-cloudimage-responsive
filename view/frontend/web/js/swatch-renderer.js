@@ -1296,13 +1296,14 @@ define([
                 gallery.updateData(imagesToUpdate);
                 this._addFotoramaVideoEvents(isInitial);
             } else if (justAnImage && justAnImage.img) {
-                context.find('.product-image-photo').attr('src', justAnImage.img);
                 if (window.ciResponsive) {
                     context.find('.product-image-photo').attr('ci-src', justAnImage.img);
-                    // context.find('.product-image-photo').attr('srcset', '');
-                    setTimeout(function() {
-                        window.ciResponsive.process();
-                    }, 1000);
+                    context.find('.product-image-photo').removeClass('ci-image-loaded');
+                    context.find('.product-image-photo').removeClass('ci-image');
+                    context.find('.product-image-photo').removeClass('lazyloaded');
+                    window.ciResponsive.process();
+                } else {
+                    context.find('.product-image-photo').attr('src', justAnImage.img);
                 }
             }
         },
