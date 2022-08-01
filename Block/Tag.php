@@ -72,7 +72,11 @@ class Tag extends Template
         }
         $config .= 'devicePixelRatioList: ' . $this->formatRatioList($this->config->getDevicePixelRatio()) . ', ';
         if ($this->config->isOrgIfSml()) {
-            $config .= 'params: {org_if_sml: 1}, ';
+            $config .= "params: 'org_if_sml=1&".$this->config->getLibraryOptions()."', ";
+        } else {
+            if ($this->config->getLibraryOptions()) {
+                $config .= "params: '".$this->config->getLibraryOptions()."', ";
+            }
         }
         $config .= 'token:\'' . $this->config->getToken() . '\' ';
         return $config;

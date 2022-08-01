@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.4] - 2022-08-01
+
+* Support ```params``` options with Library option 
+* Fix bug related to Swatch renderer, Catalog image not loaded through CI when change option in Catalog page
+
 ## [2.0.3] - 2022-04-27
 
 * Support Multiple store views(websites)
