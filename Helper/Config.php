@@ -69,9 +69,9 @@ class Config extends AbstractHelper
     {
         $ignoreList   = [];
         $ignoreBlocks =  $this->scopeConfig->getValue(
-                            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS,
-                            ScopeInterface::SCOPE_STORE
-                        );
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS,
+            ScopeInterface::SCOPE_STORE
+        );
         if (!empty($ignoreBlocks)) {
             $ignoreBlocks   = trim($ignoreBlocks);
             $explodedBlocks = explode(",", $ignoreBlocks);
