@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.5] - 2022-08-01
+
+* Support ignore blocks
+
 ## [2.0.4] - 2022-08-01
 
 * Support ```params``` options with Library option 

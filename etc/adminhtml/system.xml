@@ -80,16 +80,16 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[By default, yes.]]></comment>
                 </field>
-                 <field id="fortorama_compatibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
-                     <label>Fotorama Compatibility Mode</label>
-                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                     <comment><![CDATA[Fotorama compatibility mode, default no]]></comment>
-                 </field>
-                 <field id="devicepixelratio" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="fortorama_compatibility" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Fotorama Compatibility Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Fotorama compatibility mode, default no]]></comment>
+                </field>
+                <field id="devicepixelratio" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Maximum "Pixel ratio"</label>
                     <source_model>Scaleflex\Cloudimage\Model\Config\Source\PixelRatio</source_model>
                     <comment><![CDATA[List of supported device pixel ratios, eg: 2 for Retina devices]]></comment>
-                 </field>
+                </field>
                 <field id="orgifsml" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Prevent Image Resize</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -103,6 +103,10 @@
                     <label>Remove v7</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment><![CDATA[Removes the "/v7" part in URL format. Activate for token created after October 20th 2021.]]></comment>
+                </field>
+                <field id="ignore_blocks" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore blocks</label>
+                    <comment><![CDATA[Cloudimage will not affect on these blocks, separate by comma. For example: product.info.description, product.info.attribute]]></comment>
                 </field>
             </group>
         </section>

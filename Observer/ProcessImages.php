@@ -32,7 +32,7 @@ class ProcessImages implements ObserverInterface
      * ProcessImages constructor.
      *
      * @param Config $config
-     * @param Images $images
+     * @param Images $imagesz
      */
     public function __construct(
         Config $config,
@@ -51,11 +51,41 @@ class ProcessImages implements ObserverInterface
             return;
         }
         $transport = $observer->getData('transport');
+        $block     = $observer->getData('block');
+
+        if ($this->isIgnoreBlock($block)) {
+            return;
+        }
+
         if (stripos($transport->getHtml(), '<img') !== false) {
             $newHtml = $this->images->processHtml($transport->getHtml());
             if ($transport->getHtml() !== $newHtml) {
                 $transport->setData('html', $newHtml);
             }
         }
+    }
+
+    /**
+     * Check ignored block
+     * @param $block
+     * @return bool
+     */
+    private function isIgnoreBlock($block)
+    {
+        $blockName          = $block->getNameInLayout();
+        $blockChildNames    = $block->getChildNames();
+        $ignoreBlocks       = $this->config->getIgnoreBlocks();
+
+        if (in_array($blockName, $ignoreBlocks)) {
+            return true;
+        }
+
+        foreach ($blockChildNames as $childName) {
+            if (in_array($childName, $ignoreBlocks)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
