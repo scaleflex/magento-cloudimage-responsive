@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.0.5] - 2022-08-01
+## [2.0.6] - 2022-08-01
 
 * Support ignore blocks
 
