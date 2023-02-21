@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.7] - 2023-02-21
+
+* Support Cloudimage 4.9.1 
+* Support PHP 8.1
+
 ## [2.0.6] - 2022-08-01
 
 * Support ignore blocks
