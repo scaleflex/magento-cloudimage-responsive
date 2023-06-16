@@ -60,15 +60,34 @@ class Images extends AbstractHelper
             foreach ($dom->getElementsByTagName('img') as $element) {
                 /** @var DOMElement $element */
                 if ($element->hasAttribute('src')) {
-                    if ($element->hasAttribute('data-lazy-off')
-                        || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
-                        continue;
+
+                    if ($this->config->getPrerender()) {
+                        if ($element->hasAttribute('data-lazy-off')
+                            || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                            continue;
+                        }
+                        if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
+                            continue;
+                        }
+
+                        $imageSrc = $element->getAttribute('src') . $quality;
+                        if (!stripos($imageSrc, $this->config->getToken())) {
+                            $ciSrc = $this->config->buildUrl($imageSrc);
+                            $element->setAttribute('src', $ciSrc);
+                        }
+                    } else {
+                        if ($element->hasAttribute('data-lazy-off')
+                            || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                            continue;
+                        }
+                        if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
+                            continue;
+                        }
+                        $element->setAttribute('ci-src', $element->getAttribute('src') . $quality);
+                        $element->removeAttribute('src');
                     }
-                    if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
-                        continue;
-                    }
-                    $element->setAttribute('ci-src', $element->getAttribute('src') . $quality);
-                    $element->removeAttribute('src');
+
+
                     $replaceHtml = true;
                 }
             }

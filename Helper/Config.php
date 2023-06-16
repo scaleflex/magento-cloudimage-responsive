@@ -25,6 +25,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN = 'scaleflex_cloudimage/general/token';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING = 'scaleflex_cloudimage/options/lazy_loading';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE = 'scaleflex_cloudimage/options/ignore_node_img_size';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_PRERENDER = 'scaleflex_cloudimage/options/prerender';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_STYLE_IMG_SIZE = 'scaleflex_cloudimage/options/ignore_style_img_size';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_DO_NOT_REPLACE_URL = 'scaleflex_cloudimage/options/do_not_replace_url';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_CDN_API_URL = 'scaleflex_cloudimage/cdn/api_url';
@@ -58,6 +59,43 @@ class Config extends AbstractHelper
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN,
             ScopeInterface::SCOPE_STORE
         );
+    }
+
+    /**
+     * Get Token
+     *
+     * @return string
+     */
+    public function buildUrl($inputUrl) {
+        $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
+
+        if (!$this->isRemoveV7()) {
+            $baseUrl .= "v7/";
+        }
+
+        $flagCheck = false;
+        $ciUrl = $baseUrl . $inputUrl . "?";
+
+        if ($this->getImageQuality() < 100) {
+            if (!strpos($ciUrl, "?q=" . $this->getImageQuality())) {
+                $ciUrl .= "q=" . $this->getImageQuality();
+            }
+            $flagCheck = true;
+        }
+
+        if ($this->isOrgIfSml()) {
+            $configParam = "org_if_sml=1";
+            if (!strpos($ciUrl, $configParam)){
+
+                if (substr($ciUrl, -1) === $this->getImageQuality() . '?') {
+                    $ciUrl = substr($ciUrl, 0, -1);
+                }
+                $ciUrl .= $flagCheck ? "&" . $configParam : $configParam;
+            }
+            $flagCheck = true;
+        }
+
+            return  $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
     }
 
     /**
@@ -261,6 +299,17 @@ class Config extends AbstractHelper
     public function getDevicePixelRatio()
     {
         return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO, ScopeInterface::SCOPE_STORE);
+    }
+
+
+    /**
+     * Prerender support
+     *
+     * @return bool
+     */
+    public function getPrerender()
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_PRERENDER, ScopeInterface::SCOPE_STORE);
     }
 
     /**

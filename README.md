@@ -64,7 +64,7 @@ Once the steps listed above are completed enter your Cloudimage token into the S
 Stores > Configuration > Cloudimage By Scaleflex > Cloudimage
 ```
 
-![Scaleflex Cloudimage Plugin Configuration](doc/images/2.0.5.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/2.0.6.png "Scaleflex Cloudimage Configuration Page")
 
 Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown. Enter your Cloudimage token and configure the Options.
 
@@ -75,6 +75,8 @@ After saving the configuration, you will be asked to flush your Magento cache.
 **Support multiple websites and store views, now you can have difference token for each website.**
 
 Following options are available: 
+
+**Prerender URL:** If enabled, image url will be updated to {token}.cloudimg.io and disable CI Responsive JS.
 
 **Use origin URL:** If enabled, the module will only add query parameters to the image source URL without prefixing it with `{token}.cloudimg.io`. This is required if you use a dedicated subdomain for delivering your images (media) in Magento. You will need to complete the steps for enabling a custom CNAME in Cloudimage documented here.
 

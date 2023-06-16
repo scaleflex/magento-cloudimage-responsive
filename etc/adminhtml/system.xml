@@ -35,6 +35,11 @@
             </group>
             <group id="options" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Options</label>
+                <field id="prerender" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Prerender URL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If enabled, image url will be updated to {token}.cloudimg.io and disable CI Responsive JS.]]></comment>
+                </field>
                 <field id="do_not_replace_url" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Use origin URL</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

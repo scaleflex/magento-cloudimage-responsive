@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.8] - 2023-06-16
+
+* Prerender support
+* Cloudimage Responsive latest version
+
 ## [2.0.7] - 2023-02-21
 
 * Support Cloudimage 4.9.1 

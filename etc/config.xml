@@ -4,6 +4,7 @@
     <default>
         <scaleflex_cloudimage>
             <options>
+                <prerender>0</prerender>
                 <do_not_replace_url>1</do_not_replace_url>
                 <lazy_loading>1</lazy_loading>
             </options>
