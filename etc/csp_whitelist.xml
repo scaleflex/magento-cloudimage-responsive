@@ -7,6 +7,12 @@
                 <value id="scaleflex" type="host">*.scaleflex.it</value>
             </values>
         </policy>
+        <policy id="style-src">
+            <values>
+                <value id="cloudimage" type="host">*.cloudimg.io</value>
+                <value id="scaleflex" type="host">*.scaleflex.it</value>
+            </values>
+        </policy>
         <policy id="img-src">
             <values>
                 <value id="cloudimage-img" type="host">*.cloudimg.io</value>
