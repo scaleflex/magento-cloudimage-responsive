@@ -1297,11 +1297,15 @@ define([
                 this._addFotoramaVideoEvents(isInitial);
             } else if (justAnImage && justAnImage.img) {
                 if (window.ciResponsive) {
-                    context.find('.product-image-photo').attr('ci-src', justAnImage.img);
-                    context.find('.product-image-photo').removeClass('ci-image-loaded');
-                    context.find('.product-image-photo').removeClass('ci-image');
-                    context.find('.product-image-photo').removeClass('lazyloaded');
-                    window.ciResponsive.process();
+                    if (!window.ciPrerender) {
+                        context.find('.product-image-photo').attr('ci-src', justAnImage.img);
+                        context.find('.product-image-photo').removeClass('ci-image-loaded');
+                        context.find('.product-image-photo').removeClass('ci-image');
+                        context.find('.product-image-photo').removeClass('lazyloaded');
+                        window.ciResponsive.process();
+                    } else {
+                        context.find('.product-image-photo').attr('src', window.ciPreUrl + justAnImage.img);
+                    }
                 } else {
                     context.find('.product-image-photo').attr('src', justAnImage.img);
                 }

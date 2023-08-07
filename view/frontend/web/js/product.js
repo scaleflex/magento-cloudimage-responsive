@@ -17,10 +17,18 @@ define([
         $('[data-gallery-role=gallery-placeholder]').on('gallery:loaded', function () {
             $(this).on('fotorama:load', function (e, fotorama, extra) {
                 if (extra.frame.type === 'image') {
-                    let img = '<img ci-src="'+extra.frame.img+'" class="fotorama__img" aria-hidden="false">';
-                    extra.frame.$stageFrame.html(img);
+                    if (window.ciPrerender) {
+                        let img = '<img src="'+window.ciPreUrl + extra.frame.img +'" class="fotorama__img" aria-hidden="false">';
+                        extra.frame.$stageFrame.html(img);
+                    } else {
+                        let img = '<img ci-src="'+extra.frame.img+'" class="fotorama__img" aria-hidden="false">';
+                        extra.frame.$stageFrame.html(img);
+                    }
                 }
-                window.ciResponsive.process();
+
+                if (!window.ciPrerender) {
+                    window.ciResponsive.process();
+                }
             });
         });
     }

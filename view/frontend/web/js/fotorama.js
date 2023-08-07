@@ -2346,7 +2346,7 @@ fotoramaVersion = '4.6.4';
                     // Scaleflex_Cloudimage Fotorama Compatibility: Add sc-src
                     setMeasures(imgData.measures.width, imgData.measures.height, imgData.measures.ratio, index);
 
-                    if (window.ciFotoramaCompatibility) {
+                    if (window.ciFotoramaCompatibility && !window.ciPrerender) {
                         $img
                             .off('load error')
                             .addClass('' + (fullFLAG ? imgFullClass: imgClass))
@@ -2399,7 +2399,7 @@ fotoramaVersion = '4.6.4';
                     }, function () {
                         loaded();
                         // Scaleflex_Cloudimage Image Fotorama Compatibility, load ciResponsive()
-                        if (window.ciFotoramaCompatibility) {
+                        if (window.ciFotoramaCompatibility && !window.ciPrerender) {
                             window.ciResponsive.process();
                         }
                     });
@@ -2409,7 +2409,7 @@ fotoramaVersion = '4.6.4';
                 if (!$.Fotorama.cache[src]) {
                     $.Fotorama.cache[src] = '*';
 
-                    if (window.ciFotoramaCompatibility) {
+                    if (window.ciFotoramaCompatibility && !window.ciPrerender) {
                         setTimeout(waitAndLoad, 0);
                     } else {
                         $img
@@ -2431,8 +2431,12 @@ fotoramaVersion = '4.6.4';
 
                 frameData.state = '';
 
-                if (window.ciFotoramaCompatibility) {
-                    img.setAttribute('ci-src', src);
+                    if (window.ciFotoramaCompatibility && window.ciResponsive) {
+                    if (!window.ciPrerender) {
+                        img.setAttribute('ci-src', src);
+                    } else {
+                        img.src = window.ciPreUrl + src;
+                    }
                 } else {
                     img.src = src;
                 }

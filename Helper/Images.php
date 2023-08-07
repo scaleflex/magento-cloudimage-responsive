@@ -71,9 +71,17 @@ class Images extends AbstractHelper
                         }
 
                         $imageSrc = $element->getAttribute('src') . $quality;
-                        if (!stripos($imageSrc, $this->config->getToken())) {
-                            $ciSrc = $this->config->buildUrl($imageSrc);
-                            $element->setAttribute('src', $ciSrc);
+
+                        if (!empty($this->config->getCName())) {
+                            if (!stripos($imageSrc, $this->config->getCName())) {
+                                $ciSrc = $this->config->buildUrl($imageSrc);
+                                $element->setAttribute('src', $ciSrc);
+                            }
+                        } else {
+                            if (!stripos($imageSrc, $this->config->getToken())) {
+                                $ciSrc = $this->config->buildUrl($imageSrc);
+                                $element->setAttribute('src', $ciSrc);
+                            }
                         }
                     } else {
                         if ($element->hasAttribute('data-lazy-off')

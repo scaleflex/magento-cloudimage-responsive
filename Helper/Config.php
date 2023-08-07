@@ -23,6 +23,7 @@ class Config extends AbstractHelper
 {
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_ACTIVE = 'scaleflex_cloudimage/general/active';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN = 'scaleflex_cloudimage/general/token';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_CNAME = 'scaleflex_cloudimage/general/cname';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING = 'scaleflex_cloudimage/options/lazy_loading';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE = 'scaleflex_cloudimage/options/ignore_node_img_size';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_PRERENDER = 'scaleflex_cloudimage/options/prerender';
@@ -62,18 +63,36 @@ class Config extends AbstractHelper
     }
 
     /**
+     * Get Cname
+     *
+     * @return mixed
+     */
+    public function getCName()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_CNAME,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
      * Get Token
      *
      * @return string
      */
     public function buildUrl($inputUrl) {
-        $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
+        if (!empty($this->getCName())) {
+            $baseUrl = "//" .  $this->getCName() . "/";
+        } else {
+            $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
+        }
 
         if (!$this->isRemoveV7()) {
             $baseUrl .= "v7/";
         }
 
         $flagCheck = false;
+
         $ciUrl = $baseUrl . $inputUrl . "?";
 
         if ($this->getImageQuality() < 100) {
@@ -95,7 +114,9 @@ class Config extends AbstractHelper
             $flagCheck = true;
         }
 
-            return  $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
+        $finalUrl =  $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
+
+        return $finalUrl;
     }
 
     /**

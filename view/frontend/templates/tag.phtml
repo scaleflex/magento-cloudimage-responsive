@@ -30,6 +30,23 @@ window.lazySizesConfig.init = false;
 
 <!-- Initialize cloudimage responsive -->
 <script>
+window.ciCName = '<?= $config->getCName() ?>';
+window.ciPrerender = <?= $config->getPrerender() == 1 ? 'true' : 'false' ?>;
+window.ciRemoveV7 = <?= $config->isRemoveV7() == 1 ? 'true' : 'false' ?>;
+window.ciPreUrl = '';
+
+if (window.ciPrerender) {
+    if (window.ciCName.length > 0) {
+        window.ciPreUrl = '//' + '<?= $config->getCName() ?>/'
+    } else {
+        window.ciPreUrl = '//' + '<?= $config->getToken() ?>/'
+    }
+
+    if (!window.ciRemoveV7) {
+        window.ciPreUrl += 'v7/'
+    }
+}
+
 window.ciResponsive = new window.CIResponsive({<?= $block->getConfigToString() ?>});
 <?php if ($config->isLazyLoading()): ?>
 window.lazySizes.init();

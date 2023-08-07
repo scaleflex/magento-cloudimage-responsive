@@ -64,6 +64,10 @@ class Tag extends Template
         if ($this->config->isIgnoreStyleImgSize()) {
             $config .= 'ignoreStyleImgSize:true, ';
         }
+        if (!empty($this->config->getCName())) {
+            $config .= 'customDomain: true, ';
+            $config .= "domain: '{$this->config->getCName()}', ";
+        }
         if ($this->config->isRemoveV7()) {
             $config .= 'apiVersion:null, ';
         }
