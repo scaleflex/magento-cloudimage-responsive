@@ -36,6 +36,8 @@ Cloudimage supports Magento Open Source and Commerce Edition from version 2 onwa
 To use the module, please sign up for a free account with [Cloudimage](https://www.cloudimage.io/en/registration?utm_source=magento-plugin&utm_medium=website&utm_campaign=magento-campaign) and get your Cloudimage token.
 This token is required to configure the Magento plugin.
 
+If you want to use CNAME: Please enter your CNAME at CNAME input field.
+
 If you have a question or need assistance, feel free to contact our [support](https://www.cloudimage.io/en/contact-us).
 
 ### Install module by Composer
@@ -64,7 +66,7 @@ Once the steps listed above are completed enter your Cloudimage token into the S
 Stores > Configuration > Cloudimage By Scaleflex > Cloudimage
 ```
 
-![Scaleflex Cloudimage Plugin Configuration](doc/images/2.0.6.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/2.0.9.png "Scaleflex Cloudimage Configuration Page")
 
 Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown. Enter your Cloudimage token and configure the Options.
 

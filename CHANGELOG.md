@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.9] - 2023-08-23
+
+* CNAME Support
+
 ## [2.0.8] - 2023-06-16
 
 * Prerender support
