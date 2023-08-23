@@ -39,7 +39,7 @@ if (window.ciPrerender) {
     if (window.ciCName.length > 0) {
         window.ciPreUrl = '//' + '<?= $config->getCName() ?>/'
     } else {
-        window.ciPreUrl = '//' + '<?= $config->getToken() ?>/'
+        window.ciPreUrl = '//' + '<?= $config->getToken() ?>.cloudimg.io/'
     }
 
     if (!window.ciRemoveV7) {
