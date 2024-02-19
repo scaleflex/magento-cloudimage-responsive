@@ -80,9 +80,10 @@ class Config extends AbstractHelper
      *
      * @return string
      */
-    public function buildUrl($inputUrl) {
+    public function buildUrl($inputUrl)
+    {
         if (!empty($this->getCName())) {
-            $baseUrl = "//" .  $this->getCName() . "/";
+            $baseUrl = "//" . $this->getCName() . "/";
         } else {
             $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
         }
@@ -104,7 +105,7 @@ class Config extends AbstractHelper
 
         if ($this->isOrgIfSml()) {
             $configParam = "org_if_sml=1";
-            if (!strpos($ciUrl, $configParam)){
+            if (!strpos($ciUrl, $configParam)) {
 
                 if (substr($ciUrl, -1) === $this->getImageQuality() . '?') {
                     $ciUrl = substr($ciUrl, 0, -1);
@@ -114,7 +115,7 @@ class Config extends AbstractHelper
             $flagCheck = true;
         }
 
-        $finalUrl =  $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
+        $finalUrl = $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
 
         return $finalUrl;
     }
@@ -126,13 +127,13 @@ class Config extends AbstractHelper
      */
     public function getIgnoreBlocks()
     {
-        $ignoreList   = [];
-        $ignoreBlocks =  $this->scopeConfig->getValue(
+        $ignoreList = [];
+        $ignoreBlocks = $this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS,
             ScopeInterface::SCOPE_STORE
         );
         if (!empty($ignoreBlocks)) {
-            $ignoreBlocks   = trim($ignoreBlocks);
+            $ignoreBlocks = trim($ignoreBlocks);
             $explodedBlocks = explode(",", $ignoreBlocks);
             foreach ($explodedBlocks as $item) {
                 $ignoreList[] = trim($item);
@@ -346,7 +347,8 @@ class Config extends AbstractHelper
     /**
      * @return bool
      */
-    public function isFotoramaCompatibility() {
+    public function isFotoramaCompatibility()
+    {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY, ScopeInterface::SCOPE_STORE);
     }
 }

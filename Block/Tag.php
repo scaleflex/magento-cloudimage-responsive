@@ -30,10 +30,11 @@ class Tag extends Template
      * @param array $data
      */
     public function __construct(
-        Config $config,
+        Config           $config,
         Template\Context $context,
-        array $data = []
-    ) {
+        array            $data = []
+    )
+    {
         parent::__construct($context, $data);
         $this->config = $config;
     }
@@ -76,10 +77,10 @@ class Tag extends Template
         }
         $config .= 'devicePixelRatioList: ' . $this->formatRatioList($this->config->getDevicePixelRatio()) . ', ';
         if ($this->config->isOrgIfSml()) {
-            $config .= "params: 'org_if_sml=1&".$this->config->getLibraryOptions()."', ";
+            $config .= "params: 'org_if_sml=1&" . $this->config->getLibraryOptions() . "', ";
         } else {
             if ($this->config->getLibraryOptions()) {
-                $config .= "params: '".$this->config->getLibraryOptions()."', ";
+                $config .= "params: '" . $this->config->getLibraryOptions() . "', ";
             }
         }
         $config .= 'token:\'' . $this->config->getToken() . '\' ';

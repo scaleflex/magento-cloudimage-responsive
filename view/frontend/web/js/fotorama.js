@@ -186,8 +186,7 @@ fotoramaVersion = '4.6.4';
             hasOwnProp = function (object, property) {
                 return _hasOwnProperty.call(object, property);
             };
-        }
-        else {
+        } else {
             hasOwnProp = function (object, property) {
                 return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
             };
@@ -242,7 +241,7 @@ fotoramaVersion = '4.6.4';
         }
 
         function setCssAll(str1, str2) {
-            return setCss(prefixes.join(str1 + ';') + ( str2 || '' ));
+            return setCss(prefixes.join(str1 + ';') + (str2 || ''));
         }
 
         function is(obj, type) {
@@ -442,6 +441,7 @@ fotoramaVersion = '4.6.4';
             return (this.prefix === '') ? document.cancelFullScreen() : document[this.prefix + 'CancelFullScreen']();
         };
     }
+
     /* Bez v1.0.10-g5ae0136
      * http://github.com/rdallasgray/bez
      *
@@ -1173,7 +1173,7 @@ fotoramaVersion = '4.6.4';
             size = opt.thumbheight;
             wrapSize = $navWrap.height();
         }
-        if ( (size + opt.margin) * (guessIndex + 1) >= (wrapSize - offsetNav) ) {
+        if ((size + opt.margin) * (guessIndex + 1) >= (wrapSize - offsetNav)) {
             if (dir === 'horizontal') {
                 position = -$guessNavFrame.position().left;
             } else {
@@ -1455,7 +1455,7 @@ fotoramaVersion = '4.6.4';
                 }
             } else {
                 stopEvent(e);
-                if (movedEnough(xDiff,yDiff)) {
+                if (movedEnough(xDiff, yDiff)) {
                     (options.onMove || noop).call(el, e, {touch: touchFLAG});
                 }
             }
@@ -2290,7 +2290,7 @@ fotoramaVersion = '4.6.4';
                     src = dataFrame[srcKey],
                     dummy = fullFLAG ? dataFrame['img'] : dataFrame[type === 'stage' ? 'thumb' : 'img'];
 
-		        if (type === 'navThumb') $frame = frameData.$wrap;
+                if (type === 'navThumb') $frame = frameData.$wrap;
 
                 function triggerTriggerEvent(event) {
                     var _index = normalizeIndex(index);
@@ -2349,7 +2349,7 @@ fotoramaVersion = '4.6.4';
                     if (window.ciFotoramaCompatibility && !window.ciPrerender) {
                         $img
                             .off('load error')
-                            .addClass('' + (fullFLAG ? imgFullClass: imgClass))
+                            .addClass('' + (fullFLAG ? imgFullClass : imgClass))
                             .attr('aria-hidden', 'true')
                             .attr('ci-src', $img.context.getAttribute('ci-src'))
                             .removeAttr('src')
@@ -2357,7 +2357,7 @@ fotoramaVersion = '4.6.4';
                     } else {
                         $img
                             .off('load error')
-                            .addClass('' + (fullFLAG ? imgFullClass: imgClass))
+                            .addClass('' + (fullFLAG ? imgFullClass : imgClass))
                             .attr('aria-hidden', 'true')
                             .prependTo($frame);
                     }
@@ -2431,7 +2431,7 @@ fotoramaVersion = '4.6.4';
 
                 frameData.state = '';
 
-                    if (window.ciFotoramaCompatibility && window.ciResponsive) {
+                if (window.ciFotoramaCompatibility && window.ciResponsive) {
                     if (!window.ciPrerender) {
                         img.setAttribute('ci-src', src);
                     } else {
@@ -3031,7 +3031,7 @@ fotoramaVersion = '4.6.4';
             return this;
         };
 
-        function calcActiveIndex (options) {
+        function calcActiveIndex(options) {
             var index;
 
             if (typeof options !== 'object') {
@@ -3048,7 +3048,7 @@ fotoramaVersion = '4.6.4';
             return index;
         }
 
-        function calcGlobalIndexes (index) {
+        function calcGlobalIndexes(index) {
             that.activeIndex = activeIndex = edgeIndex(index);
             prevIndex = getPrevIndex(activeIndex);
             nextIndex = getNextIndex(activeIndex);
@@ -3058,7 +3058,7 @@ fotoramaVersion = '4.6.4';
             dirtyIndex = o_loop ? index : activeIndex;
         }
 
-        function calcTime (options) {
+        function calcTime(options) {
             var diffIndex = Math.abs(lastActiveIndex - dirtyIndex),
                 time = getNumber(options.time, function () {
                     return Math.min(o_transitionDuration * (1 + (diffIndex - 1) / 12), o_transitionDuration * 2);
@@ -3146,7 +3146,7 @@ fotoramaVersion = '4.6.4';
             arrsUpdate();
         };
 
-        that.showNav = function(silent, options, time){
+        that.showNav = function (silent, options, time) {
             thumbArrUpdate();
             if (o_nav) {
                 navUpdate();
@@ -3187,7 +3187,7 @@ fotoramaVersion = '4.6.4';
             if (o_allowFullScreen && !that.fullScreen) {
 
                 //check that this is not video
-                if(isVideo()) {
+                if (isVideo()) {
                     return;
                 }
 
@@ -3404,18 +3404,18 @@ fotoramaVersion = '4.6.4';
             threshold: 1,
             count: 0,
             thumbSlideTime: 20,
-            progress: function(){
+            progress: function () {
                 if (!this.inProgress) {
                     this.count++;
                     this.inProgress = this.count > this.threshold;
                 }
             },
-            end: function(){
-                if(this.inProgress) {
+            end: function () {
+                if (this.inProgress) {
                     this.isEnded = true
                 }
             },
-            reset: function(){
+            reset: function () {
                 this.count = 0;
                 this.inProgress = false;
                 this.isEnded = false;
@@ -3883,9 +3883,9 @@ fotoramaVersion = '4.6.4';
     $.Fotorama.jst.frameCaption = function (v) {
         var __t, __p = '', __e = _.escape;
         __p += '<div class="fotorama__caption" aria-hidden="true">\r\n    <div class="fotorama__caption__wrap" id="' +
-            ((__t = ( v.labelledby )) == null ? '' : __t) +
+            ((__t = (v.labelledby)) == null ? '' : __t) +
             '">' +
-            ((__t = ( v.caption )) == null ? '' : __t) +
+            ((__t = (v.caption)) == null ? '' : __t) +
             '</div>\r\n</div>\r\n';
         return __p
     };
@@ -3893,19 +3893,19 @@ fotoramaVersion = '4.6.4';
     $.Fotorama.jst.style = function (v) {
         var __t, __p = '', __e = _.escape;
         __p += '.fotorama' +
-            ((__t = ( v.s )) == null ? '' : __t) +
+            ((__t = (v.s)) == null ? '' : __t) +
             ' .fotorama__nav--thumbs .fotorama__nav__frame{\r\npadding:' +
-            ((__t = ( v.m )) == null ? '' : __t) +
+            ((__t = (v.m)) == null ? '' : __t) +
             'px;\r\nheight:' +
-            ((__t = ( v.h )) == null ? '' : __t) +
+            ((__t = (v.h)) == null ? '' : __t) +
             'px}\r\n.fotorama' +
-            ((__t = ( v.s )) == null ? '' : __t) +
+            ((__t = (v.s)) == null ? '' : __t) +
             ' .fotorama__thumb-border{\r\nheight:' +
-            ((__t = ( v.h )) == null ? '' : __t) +
+            ((__t = (v.h)) == null ? '' : __t) +
             'px;\r\nborder-width:' +
-            ((__t = ( v.b )) == null ? '' : __t) +
+            ((__t = (v.b)) == null ? '' : __t) +
             'px;\r\nmargin-top:' +
-            ((__t = ( v.m )) == null ? '' : __t) +
+            ((__t = (v.m)) == null ? '' : __t) +
             'px}';
         return __p
     };

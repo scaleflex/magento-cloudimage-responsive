@@ -28,9 +28,10 @@ class Images extends AbstractHelper
     private $config;
 
     public function __construct(
-        Config $config,
+        Config  $config,
         Context $context
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->config = $config;
     }

@@ -29,7 +29,8 @@ class ResponsiveBlock
     public function __construct(
         Config $config,
         Images $images
-    ) {
+    )
+    {
         $this->config = $config;
         $this->images = $images;
     }

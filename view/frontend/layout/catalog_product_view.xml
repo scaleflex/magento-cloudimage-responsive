@@ -10,11 +10,12 @@
  * @copyright Copyright (c) 2021 Cloudimage (https://www.cloudimage.io/)
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="product.info.media">
             <block class="Scaleflex\Cloudimage\Block\Tag" name="scaleflex.cloudimage.product" after="-"
-                   template="Scaleflex_Cloudimage::product.phtml" ifconfig="scaleflex_cloudimage/general/active" />
+                   template="Scaleflex_Cloudimage::product.phtml" ifconfig="scaleflex_cloudimage/general/active"/>
         </referenceContainer>
     </body>
 </page>

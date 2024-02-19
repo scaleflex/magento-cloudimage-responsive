@@ -37,7 +37,8 @@ class ProcessImages implements ObserverInterface
     public function __construct(
         Config $config,
         Images $images
-    ) {
+    )
+    {
         $this->config = $config;
         $this->images = $images;
     }
@@ -51,7 +52,7 @@ class ProcessImages implements ObserverInterface
             return;
         }
         $transport = $observer->getData('transport');
-        $block     = $observer->getData('block');
+        $block = $observer->getData('block');
 
         if ($this->isIgnoreBlock($block)) {
             return;
@@ -72,9 +73,9 @@ class ProcessImages implements ObserverInterface
      */
     private function isIgnoreBlock($block)
     {
-        $blockName          = $block->getNameInLayout();
-        $blockChildNames    = $block->getChildNames();
-        $ignoreBlocks       = $this->config->getIgnoreBlocks();
+        $blockName = $block->getNameInLayout();
+        $blockChildNames = $block->getChildNames();
+        $ignoreBlocks = $this->config->getIgnoreBlocks();
 
         if (in_array($blockName, $ignoreBlocks)) {
             return true;

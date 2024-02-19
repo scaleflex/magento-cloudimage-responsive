@@ -11,9 +11,9 @@ class PixelRatio implements \Magento\Framework\Data\OptionSourceInterface
     public function toOptionArray()
     {
         return [
-            ['value' => '1',   'label' => __('1')],
+            ['value' => '1', 'label' => __('1')],
             ['value' => '1.5', 'label' => __('1.5')],
-            ['value' => '2',   'label' => __('2')]
+            ['value' => '2', 'label' => __('2')]
         ];
     }
 }
