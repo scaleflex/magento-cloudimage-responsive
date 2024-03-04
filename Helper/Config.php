@@ -40,6 +40,8 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO = 'scaleflex_cloudimage/advanced/devicepixelratio';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML = 'scaleflex_cloudimage/advanced/orgifsml';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS = 'scaleflex_cloudimage/advanced/ignore_blocks';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_ID_ACTIVATE = 'scaleflex_cloudimage/advanced/ignore_html_id_active';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_IDS = 'scaleflex_cloudimage/advanced/ignore_html_ids';
 
     /**
      * @return bool
@@ -143,6 +145,27 @@ class Config extends AbstractHelper
         return $ignoreList;
     }
 
+    public function getIgnoreHtmlIds()
+    {
+        $ignoreList = [];
+
+        if ($this->isIgnoreHtmlIdActive()) {
+            $ignoreHtmlIds = $this->scopeConfig->getValue(
+                self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_IDS,
+                ScopeInterface::SCOPE_STORE
+            );
+            if (!empty($ignoreHtmlIds)) {
+                $ignoreHtmlIds = trim($ignoreHtmlIds);
+                $explodedHtmlIds = explode(",", $ignoreHtmlIds);
+                foreach ($explodedHtmlIds as $item) {
+                    $ignoreList[] = trim($item);
+                }
+            }
+        }
+
+        return $ignoreList;
+    }
+
     /**
      * Get Scaleflex Cloudimage plugin configuration
      *
@@ -220,6 +243,19 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_ACTIVE,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Is Ignore HTML ID Active
+     *
+     * @return bool
+     */
+    public function isIgnoreHtmlIdActive()
+    {
+        return (bool)$this->scopeConfig->getValue(
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_ID_ACTIVATE,
             ScopeInterface::SCOPE_STORE
         );
     }

@@ -44,14 +44,46 @@ class Images extends AbstractHelper
      */
     public function processHtml($html)
     {
-        if (stripos($html, '<img') !== false) {
-            $dom = new domDocument();
-            $useErrors = libxml_use_internal_errors(true);
-            $dom->loadHTML('<?xml encoding="utf-8" ?>' . $html);
-            libxml_use_internal_errors($useErrors);
-            $dom->preserveWhiteSpace = false;
-            $replaceHtml = false;
+        $htmlAttributes = [];
 
+        $dom = new domDocument();
+        $useErrors = libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="utf-8" ?>' . $html);
+        libxml_use_internal_errors($useErrors);
+        $dom->preserveWhiteSpace = false;
+
+        foreach ($dom->getElementsByTagName('*') as $element) {
+            // Check if the element has an "id" attribute
+            if ($element->hasAttribute('id')) {
+                // Get the value of the "id" attribute and add it to the array
+                $htmlAttributes[] = $element->getAttribute('id');
+            }
+
+            // Check if the element has an "id" attribute
+            if ($element->hasAttribute('class')) {
+                // Get the value of the "class" attribute
+                $classValue = $element->getAttribute('class');
+
+                // Split the class value into individual class names
+                $classNames = explode(' ', $classValue);
+
+                // Add each class name to the $htmlClasses array
+                foreach ($classNames as $className) {
+                    // Ignore empty class names
+                    if (!empty($className)) {
+                        $htmlAttributes[] = $className;
+                    }
+                }
+            }
+        }
+
+        $htmlAttributes = array_unique($htmlAttributes);
+        if ($this->isIgnoreHtmlIds($htmlAttributes)) {
+            return $html;
+        }
+
+        if (stripos($html, '<img') !== false) {
+            $replaceHtml = false;
             $quality = '';
             if ($this->config->getImageQuality() < 100) {
                 $quality = '?q=' . $this->config->getImageQuality();
@@ -107,5 +139,17 @@ class Images extends AbstractHelper
             }
         }
         return $html;
+    }
+
+    private function isIgnoreHtmlIds($htmlIds)
+    {
+        $ignoreHtmlIds = $this->config->getIgnoreHtmlIds();
+
+        foreach ($htmlIds as $htmlId) {
+            if (in_array($htmlId, $ignoreHtmlIds)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -150,6 +150,21 @@
                     <comment>
                         <![CDATA[Cloudimage will not affect on these blocks, separate by comma. For example: product.info.description, product.info.attribute]]></comment>
                 </field>
+                <field id="ignore_html_id_active" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Ignore HTML Active</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[]]></comment>
+                </field>
+                <field id="ignore_html_ids" translate="label" type="text" sortOrder="95" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Ignore HTML ID</label>
+                    <comment>
+                        <![CDATA[Cloudimage will not affect on these HTML ID(s), CLASS(es), separate by comma.]]></comment>
+                    <depends>
+                        <field id="ignore_html_id_active">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>

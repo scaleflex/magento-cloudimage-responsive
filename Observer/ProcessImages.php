@@ -60,6 +60,7 @@ class ProcessImages implements ObserverInterface
 
         if (stripos($transport->getHtml(), '<img') !== false) {
             $newHtml = $this->images->processHtml($transport->getHtml());
+
             if ($transport->getHtml() !== $newHtml) {
                 $transport->setData('html', $newHtml);
             }
