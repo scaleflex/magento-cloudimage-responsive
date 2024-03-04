@@ -52,34 +52,36 @@ class Images extends AbstractHelper
         libxml_use_internal_errors($useErrors);
         $dom->preserveWhiteSpace = false;
 
-        foreach ($dom->getElementsByTagName('*') as $element) {
-            // Check if the element has an "id" attribute
-            if ($element->hasAttribute('id')) {
-                // Get the value of the "id" attribute and add it to the array
-                $htmlAttributes[] = $element->getAttribute('id');
-            }
+        if ($this->config->isIgnoreHtmlIdActive()) {
+            foreach ($dom->getElementsByTagName('*') as $element) {
+                // Check if the element has an "id" attribute
+                if ($element->hasAttribute('id')) {
+                    // Get the value of the "id" attribute and add it to the array
+                    $htmlAttributes[] = $element->getAttribute('id');
+                }
 
-            // Check if the element has an "id" attribute
-            if ($element->hasAttribute('class')) {
-                // Get the value of the "class" attribute
-                $classValue = $element->getAttribute('class');
+                // Check if the element has an "id" attribute
+                if ($element->hasAttribute('class')) {
+                    // Get the value of the "class" attribute
+                    $classValue = $element->getAttribute('class');
 
-                // Split the class value into individual class names
-                $classNames = explode(' ', $classValue);
+                    // Split the class value into individual class names
+                    $classNames = explode(' ', $classValue);
 
-                // Add each class name to the $htmlClasses array
-                foreach ($classNames as $className) {
-                    // Ignore empty class names
-                    if (!empty($className)) {
-                        $htmlAttributes[] = $className;
+                    // Add each class name to the $htmlClasses array
+                    foreach ($classNames as $className) {
+                        // Ignore empty class names
+                        if (!empty($className)) {
+                            $htmlAttributes[] = $className;
+                        }
                     }
                 }
             }
-        }
 
-        $htmlAttributes = array_unique($htmlAttributes);
-        if ($this->isIgnoreHtmlIds($htmlAttributes)) {
-            return $html;
+            $htmlAttributes = array_unique($htmlAttributes);
+            if ($this->isIgnoreHtmlIds($htmlAttributes)) {
+                return $html;
+            }
         }
 
         if (stripos($html, '<img') !== false) {
