@@ -150,7 +150,8 @@
                     <comment>
                         <![CDATA[Cloudimage will not affect on these blocks, separate by comma. For example: product.info.description, product.info.attribute]]></comment>
                 </field>
-                <field id="ignore_html_id_active" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                <field id="ignore_html_id_active" translate="label" type="select" sortOrder="90" showInDefault="1"
+                       showInWebsite="1"
                        showInStore="1">
                     <label>Ignore HTML Active</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

@@ -78,7 +78,10 @@ the Magento admin interface:
 Stores > Configuration > Cloudimage By Scaleflex > Cloudimage
 ```
 
-![Scaleflex Cloudimage Plugin Configuration](doc/images/2.0.9.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/1.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/2.png "Scaleflex Cloudimage Configuration Page")
+![Scaleflex Cloudimage Plugin Configuration](doc/images/3.png "Scaleflex Cloudimage Configuration Page")
+
 
 Expand the `General` section and activate the module by selecting `Yes` in the `Scaleflex Cloudimage Active` dropdown.
 Enter your Cloudimage token and configure the Options.
@@ -140,6 +143,11 @@ official [Cloudimage documentation here](https://docs/cloudimage.io) for the lis
 
 **Ignore blocks(New)**: Cloudimage will not affect on these blocks, separate by comma. For example:
 product.info.description, product.info.attribute.
+
+**Ignore HTML Active**: Enable / Disable Ignore HTML ID 
+
+**Ignore HTML ID**: Show when **Ignore HTML Active** enabled, Cloudimage will not affect on these html ID, separate by comma. For example:
+product, pagecontent.
 
 ## 2. Integration "on-the-fly" in Magento templates
 

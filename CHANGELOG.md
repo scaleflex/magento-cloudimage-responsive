@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0] - 2024-07-22
+
+* Add ignore HTML Block, HTML ID
+* Support Magento 2.4.7
+
 ## [2.0.9] - 2023-08-23
 
 * CNAME Support
