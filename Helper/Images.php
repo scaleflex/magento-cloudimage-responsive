@@ -108,12 +108,12 @@ class Images extends AbstractHelper
                         $imageSrc = $element->getAttribute('src') . $quality;
 
                         if (!empty($this->config->getCName())) {
-                            if (!stripos($imageSrc, $this->config->getCName())) {
+                            if (stripos($imageSrc, $this->config->getCName()) === false) {
                                 $ciSrc = $this->config->buildUrl($imageSrc);
                                 $element->setAttribute('src', $ciSrc);
                             }
                         } else {
-                            if (!stripos($imageSrc, $this->config->getToken())) {
+                            if (stripos($imageSrc, $this->config->getToken()) === false) {
                                 $ciSrc = $this->config->buildUrl($imageSrc);
                                 $element->setAttribute('src', $ciSrc);
                             }

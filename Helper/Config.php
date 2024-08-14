@@ -99,7 +99,7 @@ class Config extends AbstractHelper
         $ciUrl = $baseUrl . $inputUrl . "?";
 
         if ($this->getImageQuality() < 100) {
-            if (!strpos($ciUrl, "?q=" . $this->getImageQuality())) {
+            if (strpos($ciUrl, "?q=" . $this->getImageQuality()) === false) {
                 $ciUrl .= "q=" . $this->getImageQuality();
             }
             $flagCheck = true;
@@ -107,7 +107,7 @@ class Config extends AbstractHelper
 
         if ($this->isOrgIfSml()) {
             $configParam = "org_if_sml=1";
-            if (!strpos($ciUrl, $configParam)) {
+            if (strpos($ciUrl, $configParam) === false) {
 
                 if (substr($ciUrl, -1) === $this->getImageQuality() . '?') {
                     $ciUrl = substr($ciUrl, 0, -1);
