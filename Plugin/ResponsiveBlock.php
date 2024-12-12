@@ -24,7 +24,7 @@ class ResponsiveBlock
     /**
      * @var Images
      */
-    private $helper;
+    private $images;
 
     public function __construct(
         Config $config,

@@ -84,10 +84,9 @@ class Config extends AbstractHelper
      */
     public function buildUrl($inputUrl)
     {
+        $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
         if (!empty($this->getCName())) {
-            $baseUrl = "//" . $this->getCName() . "/";
-        } else {
-            $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
+            $inputUrl = str_replace($this->getCName(), "", $inputUrl);
         }
 
         if (!$this->isRemoveV7()) {
