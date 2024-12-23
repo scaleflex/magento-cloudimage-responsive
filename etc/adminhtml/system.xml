@@ -44,6 +44,13 @@
                         <field id="active">1</field>
                     </depends>
                 </field>
+                <field id="cname_alias" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>CNAME Alias</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
             </group>
             <group id="options" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
                    showInStore="1">

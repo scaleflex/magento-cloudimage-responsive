@@ -24,6 +24,7 @@ class Config extends AbstractHelper
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_ACTIVE = 'scaleflex_cloudimage/general/active';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_TOKEN = 'scaleflex_cloudimage/general/token';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_CNAME = 'scaleflex_cloudimage/general/cname';
+    const XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_CNAME_ALIAS = 'scaleflex_cloudimage/general/cname_alias';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING = 'scaleflex_cloudimage/options/lazy_loading';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE = 'scaleflex_cloudimage/options/ignore_node_img_size';
     const XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_PRERENDER = 'scaleflex_cloudimage/options/prerender';
@@ -78,14 +79,29 @@ class Config extends AbstractHelper
     }
 
     /**
+     * Get Cname Alias
+     *
+     * @return mixed
+     */
+    public function getCNameAlias()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_CNAME_ALIAS,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
      * Get Token
      *
      * @return string
      */
     public function buildUrl($inputUrl)
     {
-        $baseUrl = "//" . $this->getToken() . ".cloudimg.io/";
-        if (!empty($this->getCName())) {
+        $baseUrl = "https://" . $this->getToken() . ".cloudimg.io/";
+
+        // Remove only if URL contain CNAME
+        if (!empty($this->getCName()) && str_contains($inputUrl, $this->getCName())) {
             $inputUrl = str_replace($this->getCName(), "", $inputUrl);
         }
 
@@ -117,6 +133,11 @@ class Config extends AbstractHelper
         }
 
         $finalUrl = $flagCheck ? $ciUrl : $baseUrl . $inputUrl;
+
+        // Migrate to Alias
+        if (!empty($this->getCNameAlias()) && !str_contains($finalUrl, $this->getCNameAlias())) {
+            $finalUrl = str_replace($baseUrl, $this->getCNameAlias(), $finalUrl);
+        }
 
         return $finalUrl;
     }
