@@ -96,13 +96,13 @@ class Config extends AbstractHelper
      *
      * @return string
      */
-    public function buildUrl($inputUrl)
+    public function buildUrl($inputUrl): string
     {
         $baseUrl = "https://" . $this->getToken() . ".cloudimg.io/";
 
         // Remove only if URL contain CNAME
         if (!empty($this->getCName()) && str_contains($inputUrl, $this->getCName())) {
-            $inputUrl = str_replace($this->getCName(), "", $inputUrl);
+            $inputUrl = str_ireplace($this->getCName(), "", $inputUrl);
         }
 
         if (!$this->isRemoveV7()) {
@@ -114,7 +114,7 @@ class Config extends AbstractHelper
         $ciUrl = $baseUrl . $inputUrl . "?";
 
         if ($this->getImageQuality() < 100) {
-            if (strpos($ciUrl, "?q=" . $this->getImageQuality()) === false) {
+            if (stripos($ciUrl, "?q=" . $this->getImageQuality()) === false) {
                 $ciUrl .= "q=" . $this->getImageQuality();
             }
             $flagCheck = true;
@@ -122,7 +122,7 @@ class Config extends AbstractHelper
 
         if ($this->isOrgIfSml()) {
             $configParam = "org_if_sml=1";
-            if (strpos($ciUrl, $configParam) === false) {
+            if (stripos($ciUrl, $configParam) === false) {
 
                 if (substr($ciUrl, -1) === $this->getImageQuality() . '?') {
                     $ciUrl = substr($ciUrl, 0, -1);
@@ -136,7 +136,7 @@ class Config extends AbstractHelper
 
         // Migrate to Alias
         if (!empty($this->getCNameAlias()) && !str_contains($finalUrl, $this->getCNameAlias())) {
-            $finalUrl = str_replace($baseUrl, $this->getCNameAlias(), $finalUrl);
+            $finalUrl = str_ireplace($baseUrl, $this->getCNameAlias(), $finalUrl);
         }
 
         return $finalUrl;
@@ -147,42 +147,25 @@ class Config extends AbstractHelper
      *
      * @return array
      */
-    public function getIgnoreBlocks()
+    public function getIgnoreBlocks(): array
     {
         $ignoreList = [];
-        $ignoreBlocks = $this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS,
-            ScopeInterface::SCOPE_STORE
-        );
+        $ignoreBlocks = $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_BLOCKS, ScopeInterface::SCOPE_STORE);
         if (!empty($ignoreBlocks)) {
-            $ignoreBlocks = trim($ignoreBlocks);
-            $explodedBlocks = explode(",", $ignoreBlocks);
-            foreach ($explodedBlocks as $item) {
-                $ignoreList[] = trim($item);
-            }
+            $ignoreList = array_map('trim', explode(',', trim($ignoreBlocks)));
         }
-
         return $ignoreList;
     }
 
-    public function getIgnoreHtmlIds()
+    public function getIgnoreHtmlIds(): array
     {
         $ignoreList = [];
-
         if ($this->isIgnoreHtmlIdActive()) {
-            $ignoreHtmlIds = $this->scopeConfig->getValue(
-                self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_IDS,
-                ScopeInterface::SCOPE_STORE
-            );
+            $ignoreHtmlIds = $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_IDS, ScopeInterface::SCOPE_STORE);
             if (!empty($ignoreHtmlIds)) {
-                $ignoreHtmlIds = trim($ignoreHtmlIds);
-                $explodedHtmlIds = explode(",", $ignoreHtmlIds);
-                foreach ($explodedHtmlIds as $item) {
-                    $ignoreList[] = trim($item);
-                }
+                $ignoreList = array_map('trim', explode(',', trim($ignoreHtmlIds)));
             }
         }
-
         return $ignoreList;
     }
 
@@ -191,7 +174,7 @@ class Config extends AbstractHelper
      *
      * @return array
      */
-    public function getConfiguration()
+    public function getConfiguration(): array
     {
         $data['token'] = $this->getToken();
         if ($this->isDoNotReplaceUrl()) {
@@ -230,14 +213,8 @@ class Config extends AbstractHelper
      */
     public function getImageQuality()
     {
-        $imageQuality = (int)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_IMAGE_QUALITY,
-            ScopeInterface::SCOPE_STORE
-        );
-        if ($imageQuality > 0 && $imageQuality <= 100) {
-            return $imageQuality;
-        }
-        return 100;
+        $imageQuality = (int)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_IMAGE_QUALITY, ScopeInterface::SCOPE_STORE);
+        return ($imageQuality > 0 && $imageQuality <= 100) ? $imageQuality : 100;
     }
 
     /**
@@ -248,10 +225,7 @@ class Config extends AbstractHelper
     public function getLibraryOptions()
     {
         $options = $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_LIBRARY_OPTIONS, ScopeInterface::SCOPE_STORE);
-        if (is_string($options) && strlen(trim($options)) > 0) {
-            return trim($options);
-        }
-        return '';
+        return is_string($options) ? trim($options) : '';
     }
 
     /**
@@ -259,12 +233,9 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isActive()
+    public function isActive(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_ACTIVE,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_GENERAL_ACTIVE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -272,12 +243,9 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isIgnoreHtmlIdActive()
+    public function isIgnoreHtmlIdActive(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_ID_ACTIVATE,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_IGNORE_HTML_ID_ACTIVATE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -285,18 +253,12 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isCustomFunctionActive()
+    public function isCustomFunctionActive(): bool
     {
-        $isCustomFunctionActive = (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_CUSTOM_FUNCTION_ACTIVE,
-            ScopeInterface::SCOPE_STORE
-        );
-
-        if ($isCustomFunctionActive) {
+        $isActive = (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_CUSTOM_FUNCTION_ACTIVE, ScopeInterface::SCOPE_STORE);
+        if ($isActive) {
             $customFunction = $this->getCustomFunction();
-            if (is_string($customFunction) && strlen(trim($customFunction)) > 0) {
-                return true;
-            }
+            return is_string($customFunction) && strlen(trim($customFunction)) > 0;
         }
         return false;
     }
@@ -304,45 +266,33 @@ class Config extends AbstractHelper
     /**
      * @return bool
      */
-    public function isDoNotReplaceUrl()
+    public function isDoNotReplaceUrl(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_DO_NOT_REPLACE_URL,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_DO_NOT_REPLACE_URL, ScopeInterface::SCOPE_STORE);
     }
 
     /**
      * @return bool
      */
-    public function isIgnoreNodeImgSize()
+    public function isIgnoreNodeImgSize(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_NODE_IMG_SIZE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
      * @return bool
      */
-    public function isIgnoreStyleImgSize()
+    public function isIgnoreStyleImgSize(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_STYLE_IMG_SIZE,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_IGNORE_STYLE_IMG_SIZE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
      * @return bool
      */
-    public function isOrgIfSml()
+    public function isOrgIfSml(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_ORG_IF_SML, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -350,12 +300,9 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isLazyLoading()
+    public function isLazyLoading(): bool
     {
-        return (bool)$this->scopeConfig->getValue(
-            self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING,
-            ScopeInterface::SCOPE_STORE
-        );
+        return (bool)$this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_LAZY_LOADING, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -363,7 +310,7 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isIgnoreSvg()
+    public function isIgnoreSvg(): bool
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_PROCESS_SVG, ScopeInterface::SCOPE_STORE);
     }
@@ -374,7 +321,7 @@ class Config extends AbstractHelper
      *
      * @return string
      */
-    public function getDevicePixelRatio()
+    public function getDevicePixelRatio(): string
     {
         return $this->scopeConfig->getValue(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_DEVICEPIXELRATIO, ScopeInterface::SCOPE_STORE);
     }
@@ -385,7 +332,7 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function getPrerender()
+    public function getPrerender(): bool
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_OPTIONS_PRERENDER, ScopeInterface::SCOPE_STORE);
     }
@@ -395,7 +342,7 @@ class Config extends AbstractHelper
      *
      * @return bool
      */
-    public function isRemoveV7()
+    public function isRemoveV7(): bool
     {
         return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_REMOVE_V7, ScopeInterface::SCOPE_STORE);
     }
@@ -403,8 +350,7 @@ class Config extends AbstractHelper
     /**
      * @return bool
      */
-    public function isFotoramaCompatibility()
+    public function isFotoramaCompatibility(): bool
     {
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY, ScopeInterface::SCOPE_STORE);
-    }
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_SCALEFLEX_CLOUDIMAGE_ADVANCED_FOTORAMA_COMPATIBILITY, ScopeInterface::SCOPE_STORE);}
 }
