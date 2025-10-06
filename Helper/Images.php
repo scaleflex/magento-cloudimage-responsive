@@ -98,7 +98,7 @@ class Images extends AbstractHelper
 
                     if ($this->config->getPrerender()) {
                         if ($element->hasAttribute('data-lazy-off')
-                            || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                            || stripos($element->getAttribute('class'), 'lazy-off') !== false) {
                             continue;
                         }
                         if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
@@ -113,7 +113,7 @@ class Images extends AbstractHelper
                         }
                     } else {
                         if ($element->hasAttribute('data-lazy-off')
-                            || strpos($element->getAttribute('class'), 'lazy-off') !== false) {
+                            || stripos($element->getAttribute('class'), 'lazy-off') !== false) {
                             continue;
                         }
                         if ($ignoreSvg && strtolower(pathinfo($element->getAttribute('src'), PATHINFO_EXTENSION)) === 'svg') {
